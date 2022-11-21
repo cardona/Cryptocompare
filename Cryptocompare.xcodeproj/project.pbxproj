@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		55A663FB292C097900981863 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A663FA292C097900981863 /* AppDelegate.swift */; };
-		55A663FD292C097900981863 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A663FC292C097900981863 /* SceneDelegate.swift */; };
-		55A663FF292C097900981863 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A663FE292C097900981863 /* ViewController.swift */; };
 		55A66402292C097900981863 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55A66400292C097900981863 /* Main.storyboard */; };
 		55A66405292C097900981863 /* Cryptocompare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55A66403292C097900981863 /* Cryptocompare.xcdatamodeld */; };
 		55A66407292C097A00981863 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55A66406292C097A00981863 /* Assets.xcassets */; };
@@ -17,6 +15,13 @@
 		55A66415292C097A00981863 /* CryptocompareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66414292C097A00981863 /* CryptocompareTests.swift */; };
 		55A6641F292C097A00981863 /* CryptocompareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6641E292C097A00981863 /* CryptocompareUITests.swift */; };
 		55A66421292C097A00981863 /* CryptocompareUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66420292C097A00981863 /* CryptocompareUITestsLaunchTests.swift */; };
+		55A66431292C0AA500981863 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66430292C0AA500981863 /* MainCoordinator.swift */; };
+		55A66434292C0AD700981863 /* SKRools in Frameworks */ = {isa = PBXBuildFile; productRef = 55A66433292C0AD700981863 /* SKRools */; };
+		55A66437292C0B9E00981863 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66436292C0B9E00981863 /* String+Localized.swift */; };
+		55A6643C292C0F3A00981863 /* Setup+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6643B292C0F3A00981863 /* Setup+View.swift */; };
+		55A6643F292C0F5000981863 /* Home+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6643E292C0F5000981863 /* Home+View.swift */; };
+		55A66441292C109900981863 /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66440292C109900981863 /* UIFont+CustomFonts.swift */; };
+		55A66443292C10A800981863 /* UIColors+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66442292C10A800981863 /* UIColors+CustomColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +44,6 @@
 /* Begin PBXFileReference section */
 		55A663F7292C097900981863 /* Cryptocompare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptocompare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A663FA292C097900981863 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		55A663FC292C097900981863 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		55A663FE292C097900981863 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		55A66401292C097900981863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		55A66404292C097900981863 /* Cryptocompare.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cryptocompare.xcdatamodel; sourceTree = "<group>"; };
 		55A66406292C097A00981863 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +54,12 @@
 		55A6641A292C097A00981863 /* CryptocompareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptocompareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A6641E292C097A00981863 /* CryptocompareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocompareUITests.swift; sourceTree = "<group>"; };
 		55A66420292C097A00981863 /* CryptocompareUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocompareUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		55A66430292C0AA500981863 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		55A66436292C0B9E00981863 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		55A6643B292C0F3A00981863 /* Setup+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setup+View.swift"; sourceTree = "<group>"; };
+		55A6643E292C0F5000981863 /* Home+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+View.swift"; sourceTree = "<group>"; };
+		55A66440292C109900981863 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
+		55A66442292C10A800981863 /* UIColors+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors+CustomColors.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A66434292C0AD700981863 /* SKRools in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,11 +111,11 @@
 		55A663F9292C097900981863 /* Cryptocompare */ = {
 			isa = PBXGroup;
 			children = (
+				55A66435292C0B7F00981863 /* Extensions */,
+				55A6642D292C09BD00981863 /* Features */,
+				55A6642E292C09C900981863 /* Resources */,
 				55A663FA292C097900981863 /* AppDelegate.swift */,
-				55A663FC292C097900981863 /* SceneDelegate.swift */,
-				55A663FE292C097900981863 /* ViewController.swift */,
 				55A66400292C097900981863 /* Main.storyboard */,
-				55A66406292C097A00981863 /* Assets.xcassets */,
 				55A66408292C097A00981863 /* LaunchScreen.storyboard */,
 				55A6640B292C097A00981863 /* Info.plist */,
 				55A66403292C097900981863 /* Cryptocompare.xcdatamodeld */,
@@ -130,6 +140,74 @@
 			path = CryptocompareUITests;
 			sourceTree = "<group>";
 		};
+		55A6642D292C09BD00981863 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				55A6642F292C0A8F00981863 /* Presentation */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		55A6642E292C09C900981863 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				55A66406292C097A00981863 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		55A6642F292C0A8F00981863 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				55A66439292C0BC700981863 /* HomeView */,
+				55A66438292C0BBF00981863 /* SetupView */,
+				55A66430292C0AA500981863 /* MainCoordinator.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		55A66435292C0B7F00981863 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				55A66436292C0B9E00981863 /* String+Localized.swift */,
+				55A66440292C109900981863 /* UIFont+CustomFonts.swift */,
+				55A66442292C10A800981863 /* UIColors+CustomColors.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		55A66438292C0BBF00981863 /* SetupView */ = {
+			isa = PBXGroup;
+			children = (
+				55A6643A292C0F2000981863 /* View */,
+			);
+			path = SetupView;
+			sourceTree = "<group>";
+		};
+		55A66439292C0BC700981863 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				55A6643D292C0F4000981863 /* View */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		55A6643A292C0F2000981863 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55A6643B292C0F3A00981863 /* Setup+View.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55A6643D292C0F4000981863 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55A6643E292C0F5000981863 /* Home+View.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +224,9 @@
 			dependencies = (
 			);
 			name = Cryptocompare;
+			packageProductDependencies = (
+				55A66433292C0AD700981863 /* SKRools */,
+			);
 			productName = Cryptocompare;
 			productReference = 55A663F7292C097900981863 /* Cryptocompare.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +299,9 @@
 				Base,
 			);
 			mainGroup = 55A663EE292C097900981863;
+			packageReferences = (
+				55A66432292C0AD700981863 /* XCRemoteSwiftPackageReference "SKRools" */,
+			);
 			productRefGroup = 55A663F8292C097900981863 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -261,10 +345,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55A663FF292C097900981863 /* ViewController.swift in Sources */,
+				55A6643C292C0F3A00981863 /* Setup+View.swift in Sources */,
+				55A66437292C0B9E00981863 /* String+Localized.swift in Sources */,
 				55A663FB292C097900981863 /* AppDelegate.swift in Sources */,
+				55A6643F292C0F5000981863 /* Home+View.swift in Sources */,
+				55A66441292C109900981863 /* UIFont+CustomFonts.swift in Sources */,
 				55A66405292C097900981863 /* Cryptocompare.xcdatamodeld in Sources */,
-				55A663FD292C097900981863 /* SceneDelegate.swift in Sources */,
+				55A66443292C10A800981863 /* UIColors+CustomColors.swift in Sources */,
+				55A66431292C0AA500981863 /* MainCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,6 +694,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		55A66432292C0AD700981863 /* XCRemoteSwiftPackageReference "SKRools" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cardona/SKRools";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		55A66433292C0AD700981863 /* SKRools */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55A66432292C0AD700981863 /* XCRemoteSwiftPackageReference "SKRools" */;
+			productName = SKRools;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		55A66403292C097900981863 /* Cryptocompare.xcdatamodeld */ = {
