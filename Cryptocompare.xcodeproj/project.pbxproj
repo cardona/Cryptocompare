@@ -22,6 +22,9 @@
 		55A6643F292C0F5000981863 /* Home+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6643E292C0F5000981863 /* Home+View.swift */; };
 		55A66441292C109900981863 /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66440292C109900981863 /* UIFont+CustomFonts.swift */; };
 		55A66443292C10A800981863 /* UIColors+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66442292C10A800981863 /* UIColors+CustomColors.swift */; };
+		55A66449292C225500981863 /* Coins+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66448292C225500981863 /* Coins+Repository.swift */; };
+		55A6644B292C226300981863 /* Coins+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6644A292C226300981863 /* Coins+Decodable.swift */; };
+		55A6644D292C24B200981863 /* CoinsList+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6644C292C24B200981863 /* CoinsList+Decodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,9 @@
 		55A6643E292C0F5000981863 /* Home+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+View.swift"; sourceTree = "<group>"; };
 		55A66440292C109900981863 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
 		55A66442292C10A800981863 /* UIColors+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors+CustomColors.swift"; sourceTree = "<group>"; };
+		55A66448292C225500981863 /* Coins+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coins+Repository.swift"; sourceTree = "<group>"; };
+		55A6644A292C226300981863 /* Coins+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coins+Decodable.swift"; sourceTree = "<group>"; };
+		55A6644C292C24B200981863 /* CoinsList+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsList+Decodable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,7 @@
 		55A6642D292C09BD00981863 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				55A66445292C222C00981863 /* Data */,
 				55A6642F292C0A8F00981863 /* Presentation */,
 			);
 			path = Features;
@@ -206,6 +213,32 @@
 				55A6643E292C0F5000981863 /* Home+View.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		55A66445292C222C00981863 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				55A66447292C223B00981863 /* Repository */,
+				55A66446292C223300981863 /* Decodables */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		55A66446292C223300981863 /* Decodables */ = {
+			isa = PBXGroup;
+			children = (
+				55A6644A292C226300981863 /* Coins+Decodable.swift */,
+				55A6644C292C24B200981863 /* CoinsList+Decodable.swift */,
+			);
+			path = Decodables;
+			sourceTree = "<group>";
+		};
+		55A66447292C223B00981863 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				55A66448292C225500981863 /* Coins+Repository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,13 +401,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A6644D292C24B200981863 /* CoinsList+Decodable.swift in Sources */,
 				55A6643C292C0F3A00981863 /* Setup+View.swift in Sources */,
 				55A66437292C0B9E00981863 /* String+Localized.swift in Sources */,
 				55A663FB292C097900981863 /* AppDelegate.swift in Sources */,
+				55A66449292C225500981863 /* Coins+Repository.swift in Sources */,
 				55A6643F292C0F5000981863 /* Home+View.swift in Sources */,
 				55A66441292C109900981863 /* UIFont+CustomFonts.swift in Sources */,
 				55A66405292C097900981863 /* Cryptocompare.xcdatamodeld in Sources */,
 				55A66443292C10A800981863 /* UIColors+CustomColors.swift in Sources */,
+				55A6644B292C226300981863 /* Coins+Decodable.swift in Sources */,
 				55A66431292C0AA500981863 /* MainCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

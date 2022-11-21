@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var coordinator: MainCoordinator?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        SKRoolsConfig.shared.config(url: "https://min-api.cryptocompare.com/")
+        SKRoolsConfig.shared.config(url: "https://min-api.cryptocompare.com/data/")
         SKRoolsConfig.shared.config(loggerGroups: [.networking])
 
         let navController = UINavigationController()
