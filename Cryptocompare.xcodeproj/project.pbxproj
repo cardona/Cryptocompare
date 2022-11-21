@@ -26,6 +26,9 @@
 		55A6644D292C24B200981863 /* CoinsList+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6644C292C24B200981863 /* CoinsList+Decodable.swift */; };
 		55A6644F292C276700981863 /* CoinsListRepository+Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6644E292C276700981863 /* CoinsListRepository+Parameters.swift */; };
 		55A66451292C277300981863 /* CoinsList+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66450292C277300981863 /* CoinsList+Repository.swift */; };
+		55A66453292C296700981863 /* CoinsListPrice+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66452292C296700981863 /* CoinsListPrice+Repository.swift */; };
+		55A66457292C29A000981863 /* CointsListPriceRepository+Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66456292C29A000981863 /* CointsListPriceRepository+Parameters.swift */; };
+		55A66459292C2A9F00981863 /* CoinsListPrice+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66458292C2A9F00981863 /* CoinsListPrice+Decodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +71,9 @@
 		55A6644C292C24B200981863 /* CoinsList+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsList+Decodable.swift"; sourceTree = "<group>"; };
 		55A6644E292C276700981863 /* CoinsListRepository+Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListRepository+Parameters.swift"; sourceTree = "<group>"; };
 		55A66450292C277300981863 /* CoinsList+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsList+Repository.swift"; sourceTree = "<group>"; };
+		55A66452292C296700981863 /* CoinsListPrice+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListPrice+Repository.swift"; sourceTree = "<group>"; };
+		55A66456292C29A000981863 /* CointsListPriceRepository+Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CointsListPriceRepository+Parameters.swift"; sourceTree = "<group>"; };
+		55A66458292C2A9F00981863 /* CoinsListPrice+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListPrice+Decodable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +237,7 @@
 			children = (
 				55A6644A292C226300981863 /* Coins+Decodable.swift */,
 				55A6644C292C24B200981863 /* CoinsList+Decodable.swift */,
+				55A66458292C2A9F00981863 /* CoinsListPrice+Decodable.swift */,
 			);
 			path = Decodables;
 			sourceTree = "<group>";
@@ -238,10 +245,28 @@
 		55A66447292C223B00981863 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				55A66455292C297F00981863 /* CoinsListPrice */,
+				55A66454292C296D00981863 /* CoinsList */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		55A66454292C296D00981863 /* CoinsList */ = {
+			isa = PBXGroup;
+			children = (
 				55A66450292C277300981863 /* CoinsList+Repository.swift */,
 				55A6644E292C276700981863 /* CoinsListRepository+Parameters.swift */,
 			);
-			path = Repository;
+			path = CoinsList;
+			sourceTree = "<group>";
+		};
+		55A66455292C297F00981863 /* CoinsListPrice */ = {
+			isa = PBXGroup;
+			children = (
+				55A66452292C296700981863 /* CoinsListPrice+Repository.swift */,
+				55A66456292C29A000981863 /* CointsListPriceRepository+Parameters.swift */,
+			);
+			path = CoinsListPrice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,17 +430,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				55A6644D292C24B200981863 /* CoinsList+Decodable.swift in Sources */,
+				55A66457292C29A000981863 /* CointsListPriceRepository+Parameters.swift in Sources */,
 				55A6643C292C0F3A00981863 /* Setup+View.swift in Sources */,
 				55A66437292C0B9E00981863 /* String+Localized.swift in Sources */,
 				55A663FB292C097900981863 /* AppDelegate.swift in Sources */,
 				55A6643F292C0F5000981863 /* Home+View.swift in Sources */,
 				55A6644F292C276700981863 /* CoinsListRepository+Parameters.swift in Sources */,
+				55A66453292C296700981863 /* CoinsListPrice+Repository.swift in Sources */,
 				55A66441292C109900981863 /* UIFont+CustomFonts.swift in Sources */,
 				55A66405292C097900981863 /* Cryptocompare.xcdatamodeld in Sources */,
 				55A66443292C10A800981863 /* UIColors+CustomColors.swift in Sources */,
 				55A6644B292C226300981863 /* Coins+Decodable.swift in Sources */,
 				55A66431292C0AA500981863 /* MainCoordinator.swift in Sources */,
 				55A66451292C277300981863 /* CoinsList+Repository.swift in Sources */,
+				55A66459292C2A9F00981863 /* CoinsListPrice+Decodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
