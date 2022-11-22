@@ -10,8 +10,8 @@ import Foundation
 struct CoinsListDecodable: Decodable {
     var response: String?
     var message: String?
-    var data: [CoinsDecodable]?
-    var rateLimit: String?
+    var data: [String: CoinsDecodable]?
+    var rateLimit: [String: String]?
     var hasWarning: Bool?
     var type: Int?
 
@@ -19,8 +19,8 @@ struct CoinsListDecodable: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         response = try container.decodeIfPresent(String.self, forKey: .response)
         message = try container.decodeIfPresent(String.self, forKey: .message)
-        data = try container.decodeIfPresent([CoinsDecodable].self, forKey: .data)
-        rateLimit = try container.decodeIfPresent(String.self, forKey: .rateLimit)
+        data = try container.decodeIfPresent([String: CoinsDecodable].self, forKey: .data)
+        rateLimit = try container.decodeIfPresent([String: String].self, forKey: .rateLimit)
         hasWarning = try container.decodeIfPresent(Bool.self, forKey: .hasWarning)
         type = try container.decodeIfPresent(Int.self, forKey: .type)
     }
