@@ -11,20 +11,29 @@ final class CoinsListPriceMock: XCTestCase {
     static func makeJsonMock() -> Data {
         return Data("""
 {
+   "BTCD":{
+      "EUR":48.45
+   },
+   "XPY":{
+      "EUR":0.001213
+   },
+   "XBS":{
+      "EUR":0.8656
+   },
+   "PRC":{
+      "EUR":0.01079
+   },
    "ETH":{
-      "BTC":0.06986,
-      "USD":1123.02,
-      "EUR":1090.61
+      "EUR":1092.64
+   },
+   "BTC":{
+      "EUR":15631.28
    },
    "CRAIG":{
-      "BTC":1.9e-7,
-      "USD":0.003054,
-      "EUR":0.002967
+      "EUR":0.00297
    },
    "DASH":{
-      "BTC":0.002275,
-      "USD":36.6,
-      "EUR":35.5
+      "EUR":35.62
    }
 }
 """.utf8)

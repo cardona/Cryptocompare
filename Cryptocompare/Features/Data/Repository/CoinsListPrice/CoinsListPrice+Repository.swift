@@ -10,7 +10,7 @@ import SKRools
 
 protocol CoinsListPriceRepository {
     @discardableResult
-    func request(parameters: CoinsListPriceRepositoryParameters, completion: @escaping(Result<CoinsListPriceDecodable, DataTransferError>) -> Void) -> Cancellable?
+    func request(parameters: CoinsListPriceRepositoryParameters, completion: @escaping(Result<[String: CoinsListPriceDecodable], DataTransferError>) -> Void) -> Cancellable?
 }
 
 final class DefaultCoinsListPriceRepository: CoinsListPriceRepository {
@@ -20,15 +20,21 @@ final class DefaultCoinsListPriceRepository: CoinsListPriceRepository {
         self.dataTransferService = dataTransferService
     }
 
-    static func url() -> Endpoint<CoinsListPriceDecodable> {
+    static func url() -> Endpoint<[String: CoinsListPriceDecodable]> {
         return Endpoint(path: "/pricemulti")
     }
 }
 
 extension DefaultCoinsListPriceRepository {
-    func request(parameters: CoinsListPriceRepositoryParameters, completion: @escaping (Result<CoinsListPriceDecodable, DataTransferError>) -> Void) -> Cancellable? {
+    func request(parameters: CoinsListPriceRepositoryParameters, completion: @escaping (Result<[String: CoinsListPriceDecodable], DataTransferError>) -> Void) -> Cancellable? {
         let url = DefaultCoinsListPriceRepository.url()
         url.method = .get
+
+        let symbols = parameters.fsyms?.joined(separator: ",")
+        let currency = parameters.tsyms?.joined(separator: ",")
+        var param: [String: Any] = [:]
+        param["fsyms"] = symbols
+        param["tsyms"] = currency
 
         let networkTask = self.dataTransferService.request(with: url, completion: completion)
 

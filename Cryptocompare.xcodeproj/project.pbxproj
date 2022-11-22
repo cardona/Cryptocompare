@@ -35,6 +35,7 @@
 		55A6647E292D20DF00981863 /* CoinsList+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6647D292D20DF00981863 /* CoinsList+Json.swift */; };
 		55A66480292D212F00981863 /* CoinsListRepository+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6647F292D212F00981863 /* CoinsListRepository+Mock.swift */; };
 		55A66482292D758800981863 /* CoinsListPrice+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66481292D758800981863 /* CoinsListPrice+Json.swift */; };
+		55A66484292D787100981863 /* CoinsListPriceRepository+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66483292D787100981863 /* CoinsListPriceRepository+Mock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		55A6647D292D20DF00981863 /* CoinsList+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsList+Json.swift"; sourceTree = "<group>"; };
 		55A6647F292D212F00981863 /* CoinsListRepository+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListRepository+Mock.swift"; sourceTree = "<group>"; };
 		55A66481292D758800981863 /* CoinsListPrice+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListPrice+Json.swift"; sourceTree = "<group>"; };
+		55A66483292D787100981863 /* CoinsListPriceRepository+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListPriceRepository+Mock.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +349,7 @@
 				55A6647D292D20DF00981863 /* CoinsList+Json.swift */,
 				55A6647F292D212F00981863 /* CoinsListRepository+Mock.swift */,
 				55A66481292D758800981863 /* CoinsListPrice+Json.swift */,
+				55A66483292D787100981863 /* CoinsListPriceRepository+Mock.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 			files = (
 				55A6647E292D20DF00981863 /* CoinsList+Json.swift in Sources */,
 				55A66476292D1FC200981863 /* CoinsListUseCase+Test.swift in Sources */,
+				55A66484292D787100981863 /* CoinsListPriceRepository+Mock.swift in Sources */,
 				55A66480292D212F00981863 /* CoinsListRepository+Mock.swift in Sources */,
 				55A66415292C097A00981863 /* CryptocompareTests.swift in Sources */,
 				55A66482292D758800981863 /* CoinsListPrice+Json.swift in Sources */,

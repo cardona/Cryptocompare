@@ -12,8 +12,7 @@ import SKRools
 
 extension CoinsListUseCaseTest {
     final class CoinsListRepositorySuccessMock: CoinsListRepository {
-        func request(parameters: CoinsListRepositoryParameters, completion: @escaping (Result<CoinsListDecodable, DataTransferError>) -> Void) -> SKRools.Cancellable? {
-
+        func request(parameters: CoinsListRepositoryParameters, completion: @escaping (Result<CoinsListDecodable, DataTransferError>) -> Void) -> Cancellable? {
             let decoder = JSONDecoder()
             let json = CoinsListJsonMock.makeJsonMock()
             if let decodable = try? decoder.decode(CoinsListDecodable.self, from: json) {

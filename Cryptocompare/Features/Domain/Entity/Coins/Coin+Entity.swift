@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct CoinEntity {
+struct CoinEntity: Comparable {
+    static func < (lhs: CoinEntity, rhs: CoinEntity) -> Bool {
+        return lhs.fullName ?? "" < rhs.fullName ?? ""
+    }
+
     /// Coin identifier
     var identifier: String?
     /// Coin Logo Url
