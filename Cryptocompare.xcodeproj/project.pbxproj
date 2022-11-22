@@ -29,6 +29,8 @@
 		55A66453292C296700981863 /* CoinsListPrice+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66452292C296700981863 /* CoinsListPrice+Repository.swift */; };
 		55A66457292C29A000981863 /* CointsListPriceRepository+Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66456292C29A000981863 /* CointsListPriceRepository+Parameters.swift */; };
 		55A66459292C2A9F00981863 /* CoinsListPrice+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66458292C2A9F00981863 /* CoinsListPrice+Decodable.swift */; };
+		55A66466292CDFAF00981863 /* CoinsList+UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66465292CDFAF00981863 /* CoinsList+UseCase.swift */; };
+		55A6646E292CE27400981863 /* Coin+Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6646D292CE27400981863 /* Coin+Entity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		55A66452292C296700981863 /* CoinsListPrice+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListPrice+Repository.swift"; sourceTree = "<group>"; };
 		55A66456292C29A000981863 /* CointsListPriceRepository+Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CointsListPriceRepository+Parameters.swift"; sourceTree = "<group>"; };
 		55A66458292C2A9F00981863 /* CoinsListPrice+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListPrice+Decodable.swift"; sourceTree = "<group>"; };
+		55A66465292CDFAF00981863 /* CoinsList+UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsList+UseCase.swift"; sourceTree = "<group>"; };
+		55A6646D292CE27400981863 /* Coin+Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coin+Entity.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 		55A6642D292C09BD00981863 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				55A6645A292CD48300981863 /* Domain */,
 				55A66445292C222C00981863 /* Data */,
 				55A6642F292C0A8F00981863 /* Presentation */,
 			);
@@ -267,6 +272,72 @@
 				55A66456292C29A000981863 /* CointsListPriceRepository+Parameters.swift */,
 			);
 			path = CoinsListPrice;
+			sourceTree = "<group>";
+		};
+		55A6645A292CD48300981863 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				55A6645D292CD52900981863 /* Entity */,
+				55A6645C292CD52200981863 /* UseCase */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		55A6645C292CD52200981863 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				55A66464292CDF9800981863 /* CoinsList */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		55A6645D292CD52900981863 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				55A6646A292CE1DC00981863 /* Coins */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		55A66464292CDF9800981863 /* CoinsList */ = {
+			isa = PBXGroup;
+			children = (
+				55A66465292CDFAF00981863 /* CoinsList+UseCase.swift */,
+			);
+			path = CoinsList;
+			sourceTree = "<group>";
+		};
+		55A6646A292CE1DC00981863 /* Coins */ = {
+			isa = PBXGroup;
+			children = (
+				55A6646D292CE27400981863 /* Coin+Entity.swift */,
+			);
+			path = Coins;
+			sourceTree = "<group>";
+		};
+		55A66474292D1F8F00981863 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				55A66475292D1FC200981863 /* CoinsListUseCase+Test.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		55A66477292D201900981863 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				55A66478292D202000981863 /* Data */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		55A66478292D202000981863 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				55A6647D292D20DF00981863 /* CoinsList+Json.swift */,
+				55A6647F292D212F00981863 /* CoinsListRepository+Mock.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,7 +510,9 @@
 				55A66453292C296700981863 /* CoinsListPrice+Repository.swift in Sources */,
 				55A66441292C109900981863 /* UIFont+CustomFonts.swift in Sources */,
 				55A66405292C097900981863 /* Cryptocompare.xcdatamodeld in Sources */,
+				55A66466292CDFAF00981863 /* CoinsList+UseCase.swift in Sources */,
 				55A66443292C10A800981863 /* UIColors+CustomColors.swift in Sources */,
+				55A6646E292CE27400981863 /* Coin+Entity.swift in Sources */,
 				55A6644B292C226300981863 /* Coins+Decodable.swift in Sources */,
 				55A66431292C0AA500981863 /* MainCoordinator.swift in Sources */,
 				55A66451292C277300981863 /* CoinsList+Repository.swift in Sources */,
