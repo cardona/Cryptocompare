@@ -43,6 +43,10 @@
 		55A6648F292E926E00981863 /* CoinsListUseCase+Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6648E292E926E00981863 /* CoinsListUseCase+Parameters.swift */; };
 		55A66491292EBAE200981863 /* CoinDetail+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66490292EBAE200981863 /* CoinDetail+Decodable.swift */; };
 		55A66493292EBB1F00981863 /* CoinDetails+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66492292EBB1F00981863 /* CoinDetails+Json.swift */; };
+		55A66496292EC16200981863 /* CoinDetail+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66495292EC16200981863 /* CoinDetail+Repository.swift */; };
+		55A66498292EC17000981863 /* CoinDetailRepository+Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66497292EC17000981863 /* CoinDetailRepository+Parameters.swift */; };
+		55A6649A292EC39800981863 /* CoinDetailRaw+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66499292EC39800981863 /* CoinDetailRaw+Decodable.swift */; };
+		55A6649C292EC3B300981863 /* CoinDetailEur+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6649B292EC3B300981863 /* CoinDetailEur+Decodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +106,10 @@
 		55A6648E292E926E00981863 /* CoinsListUseCase+Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListUseCase+Parameters.swift"; sourceTree = "<group>"; };
 		55A66490292EBAE200981863 /* CoinDetail+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetail+Decodable.swift"; sourceTree = "<group>"; };
 		55A66492292EBB1F00981863 /* CoinDetails+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetails+Json.swift"; sourceTree = "<group>"; };
+		55A66495292EC16200981863 /* CoinDetail+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetail+Repository.swift"; sourceTree = "<group>"; };
+		55A66497292EC17000981863 /* CoinDetailRepository+Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetailRepository+Parameters.swift"; sourceTree = "<group>"; };
+		55A66499292EC39800981863 /* CoinDetailRaw+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetailRaw+Decodable.swift"; sourceTree = "<group>"; };
+		55A6649B292EC3B300981863 /* CoinDetailEur+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetailEur+Decodable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +278,8 @@
 				55A6644C292C24B200981863 /* CoinsList+Decodable.swift */,
 				55A66458292C2A9F00981863 /* CoinsListPrice+Decodable.swift */,
 				55A66490292EBAE200981863 /* CoinDetail+Decodable.swift */,
+				55A66499292EC39800981863 /* CoinDetailRaw+Decodable.swift */,
+				55A6649B292EC3B300981863 /* CoinDetailEur+Decodable.swift */,
 			);
 			path = Decodables;
 			sourceTree = "<group>";
@@ -277,6 +287,7 @@
 		55A66447292C223B00981863 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				55A66494292EC14B00981863 /* CoinDetail */,
 				55A66455292C297F00981863 /* CoinsListPrice */,
 				55A66454292C296D00981863 /* CoinsList */,
 			);
@@ -381,6 +392,15 @@
 				55A66492292EBB1F00981863 /* CoinDetails+Json.swift */,
 			);
 			path = Raw;
+			sourceTree = "<group>";
+		};
+		55A66494292EC14B00981863 /* CoinDetail */ = {
+			isa = PBXGroup;
+			children = (
+				55A66495292EC16200981863 /* CoinDetail+Repository.swift */,
+				55A66497292EC17000981863 /* CoinDetailRepository+Parameters.swift */,
+			);
+			path = CoinDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -554,14 +574,18 @@
 				55A6644F292C276700981863 /* CoinsListRepository+Parameters.swift in Sources */,
 				55A66453292C296700981863 /* CoinsListPrice+Repository.swift in Sources */,
 				55A66441292C109900981863 /* UIFont+CustomFonts.swift in Sources */,
+				55A6649C292EC3B300981863 /* CoinDetailEur+Decodable.swift in Sources */,
 				55A66405292C097900981863 /* Cryptocompare.xcdatamodeld in Sources */,
 				55A66466292CDFAF00981863 /* CoinsList+UseCase.swift in Sources */,
 				55A66443292C10A800981863 /* UIColors+CustomColors.swift in Sources */,
+				55A6649A292EC39800981863 /* CoinDetailRaw+Decodable.swift in Sources */,
 				55A6646E292CE27400981863 /* Coin+Entity.swift in Sources */,
 				55A6644B292C226300981863 /* Coins+Decodable.swift in Sources */,
 				55A66431292C0AA500981863 /* MainCoordinator.swift in Sources */,
+				55A66496292EC16200981863 /* CoinDetail+Repository.swift in Sources */,
 				55A66451292C277300981863 /* CoinsList+Repository.swift in Sources */,
 				55A66459292C2A9F00981863 /* CoinsListPrice+Decodable.swift in Sources */,
+				55A66498292EC17000981863 /* CoinDetailRepository+Parameters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
