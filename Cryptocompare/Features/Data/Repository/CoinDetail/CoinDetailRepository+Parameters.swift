@@ -12,5 +12,4 @@ struct CoinDetailRepositoryParameters {
     var symbol: [String]?
     /// Comma separated cryptocurrency symbols list to convert into [ Min length - 1] [ Max length - 100]
     var currency: [String]?
-    
 }
