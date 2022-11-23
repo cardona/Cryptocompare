@@ -8,10 +8,6 @@
 import Foundation
 
 struct CoinEntity: Comparable {
-    static func < (lhs: CoinEntity, rhs: CoinEntity) -> Bool {
-        return lhs.fullName ?? "" < rhs.fullName ?? ""
-    }
-
     /// Coin identifier
     var identifier: String?
     /// Coin Logo Url
@@ -28,5 +24,9 @@ struct CoinEntity: Comparable {
         self.imageUrl = decodable.imageUrl
         self.symbol = decodable.symbol
         self.fullName = decodable.fullName
+    }
+
+    static func < (lhs: CoinEntity, rhs: CoinEntity) -> Bool {
+        return lhs.fullName ?? "" < rhs.fullName ?? ""
     }
 }
