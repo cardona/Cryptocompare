@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		55A663FB292C097900981863 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A663FA292C097900981863 /* AppDelegate.swift */; };
-		55A663FD292C097900981863 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A663FC292C097900981863 /* SceneDelegate.swift */; };
-		55A663FF292C097900981863 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A663FE292C097900981863 /* ViewController.swift */; };
 		55A66402292C097900981863 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55A66400292C097900981863 /* Main.storyboard */; };
 		55A66405292C097900981863 /* Cryptocompare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55A66403292C097900981863 /* Cryptocompare.xcdatamodeld */; };
 		55A66407292C097A00981863 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55A66406292C097A00981863 /* Assets.xcassets */; };
@@ -17,6 +15,32 @@
 		55A66415292C097A00981863 /* CryptocompareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66414292C097A00981863 /* CryptocompareTests.swift */; };
 		55A6641F292C097A00981863 /* CryptocompareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6641E292C097A00981863 /* CryptocompareUITests.swift */; };
 		55A66421292C097A00981863 /* CryptocompareUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66420292C097A00981863 /* CryptocompareUITestsLaunchTests.swift */; };
+		55A66431292C0AA500981863 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66430292C0AA500981863 /* MainCoordinator.swift */; };
+		55A66434292C0AD700981863 /* SKRools in Frameworks */ = {isa = PBXBuildFile; productRef = 55A66433292C0AD700981863 /* SKRools */; };
+		55A66437292C0B9E00981863 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66436292C0B9E00981863 /* String+Localized.swift */; };
+		55A6643C292C0F3A00981863 /* Setup+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6643B292C0F3A00981863 /* Setup+View.swift */; };
+		55A6643F292C0F5000981863 /* Home+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6643E292C0F5000981863 /* Home+View.swift */; };
+		55A66441292C109900981863 /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66440292C109900981863 /* UIFont+CustomFonts.swift */; };
+		55A66443292C10A800981863 /* UIColors+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66442292C10A800981863 /* UIColors+CustomColors.swift */; };
+		55A6644B292C226300981863 /* Coins+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6644A292C226300981863 /* Coins+Decodable.swift */; };
+		55A6644D292C24B200981863 /* CoinsList+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6644C292C24B200981863 /* CoinsList+Decodable.swift */; };
+		55A6644F292C276700981863 /* CoinsListRepository+Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6644E292C276700981863 /* CoinsListRepository+Parameters.swift */; };
+		55A66451292C277300981863 /* CoinsList+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66450292C277300981863 /* CoinsList+Repository.swift */; };
+		55A66453292C296700981863 /* CoinsListPrice+Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66452292C296700981863 /* CoinsListPrice+Repository.swift */; };
+		55A66457292C29A000981863 /* CointsListPriceRepository+Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66456292C29A000981863 /* CointsListPriceRepository+Parameters.swift */; };
+		55A66459292C2A9F00981863 /* CoinsListPrice+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66458292C2A9F00981863 /* CoinsListPrice+Decodable.swift */; };
+		55A66466292CDFAF00981863 /* CoinsList+UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66465292CDFAF00981863 /* CoinsList+UseCase.swift */; };
+		55A6646E292CE27400981863 /* Coin+Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6646D292CE27400981863 /* Coin+Entity.swift */; };
+		55A66476292D1FC200981863 /* CoinsListUseCase+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66475292D1FC200981863 /* CoinsListUseCase+Test.swift */; };
+		55A6647E292D20DF00981863 /* CoinsList+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6647D292D20DF00981863 /* CoinsList+Json.swift */; };
+		55A66480292D212F00981863 /* CoinsListRepository+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6647F292D212F00981863 /* CoinsListRepository+Mock.swift */; };
+		55A66482292D758800981863 /* CoinsListPrice+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66481292D758800981863 /* CoinsListPrice+Json.swift */; };
+		55A66484292D787100981863 /* CoinsListPriceRepository+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66483292D787100981863 /* CoinsListPriceRepository+Mock.swift */; };
+		55A66486292E138100981863 /* CoinsLargeList+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66485292E138100981863 /* CoinsLargeList+Json.swift */; };
+		55A66488292E1C1400981863 /* CoinsLargeListPrice+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66487292E1C1400981863 /* CoinsLargeListPrice+Json.swift */; };
+		55A6648B292E467B00981863 /* CoinsListPriceEmpty+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6648A292E467B00981863 /* CoinsListPriceEmpty+Json.swift */; };
+		55A6648D292E46BE00981863 /* CoinsListEmpty+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6648C292E46BE00981863 /* CoinsListEmpty+Json.swift */; };
+		55A6648F292E926E00981863 /* CoinsListUseCase+Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6648E292E926E00981863 /* CoinsListUseCase+Parameters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +63,6 @@
 /* Begin PBXFileReference section */
 		55A663F7292C097900981863 /* Cryptocompare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptocompare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A663FA292C097900981863 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		55A663FC292C097900981863 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		55A663FE292C097900981863 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		55A66401292C097900981863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		55A66404292C097900981863 /* Cryptocompare.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cryptocompare.xcdatamodel; sourceTree = "<group>"; };
 		55A66406292C097A00981863 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +73,31 @@
 		55A6641A292C097A00981863 /* CryptocompareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptocompareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A6641E292C097A00981863 /* CryptocompareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocompareUITests.swift; sourceTree = "<group>"; };
 		55A66420292C097A00981863 /* CryptocompareUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocompareUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		55A66430292C0AA500981863 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		55A66436292C0B9E00981863 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		55A6643B292C0F3A00981863 /* Setup+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Setup+View.swift"; sourceTree = "<group>"; };
+		55A6643E292C0F5000981863 /* Home+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home+View.swift"; sourceTree = "<group>"; };
+		55A66440292C109900981863 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
+		55A66442292C10A800981863 /* UIColors+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors+CustomColors.swift"; sourceTree = "<group>"; };
+		55A6644A292C226300981863 /* Coins+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coins+Decodable.swift"; sourceTree = "<group>"; };
+		55A6644C292C24B200981863 /* CoinsList+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsList+Decodable.swift"; sourceTree = "<group>"; };
+		55A6644E292C276700981863 /* CoinsListRepository+Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListRepository+Parameters.swift"; sourceTree = "<group>"; };
+		55A66450292C277300981863 /* CoinsList+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsList+Repository.swift"; sourceTree = "<group>"; };
+		55A66452292C296700981863 /* CoinsListPrice+Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListPrice+Repository.swift"; sourceTree = "<group>"; };
+		55A66456292C29A000981863 /* CointsListPriceRepository+Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CointsListPriceRepository+Parameters.swift"; sourceTree = "<group>"; };
+		55A66458292C2A9F00981863 /* CoinsListPrice+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListPrice+Decodable.swift"; sourceTree = "<group>"; };
+		55A66465292CDFAF00981863 /* CoinsList+UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsList+UseCase.swift"; sourceTree = "<group>"; };
+		55A6646D292CE27400981863 /* Coin+Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coin+Entity.swift"; sourceTree = "<group>"; };
+		55A66475292D1FC200981863 /* CoinsListUseCase+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListUseCase+Test.swift"; sourceTree = "<group>"; };
+		55A6647D292D20DF00981863 /* CoinsList+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsList+Json.swift"; sourceTree = "<group>"; };
+		55A6647F292D212F00981863 /* CoinsListRepository+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListRepository+Mock.swift"; sourceTree = "<group>"; };
+		55A66481292D758800981863 /* CoinsListPrice+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListPrice+Json.swift"; sourceTree = "<group>"; };
+		55A66483292D787100981863 /* CoinsListPriceRepository+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListPriceRepository+Mock.swift"; sourceTree = "<group>"; };
+		55A66485292E138100981863 /* CoinsLargeList+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsLargeList+Json.swift"; sourceTree = "<group>"; };
+		55A66487292E1C1400981863 /* CoinsLargeListPrice+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsLargeListPrice+Json.swift"; sourceTree = "<group>"; };
+		55A6648A292E467B00981863 /* CoinsListPriceEmpty+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListPriceEmpty+Json.swift"; sourceTree = "<group>"; };
+		55A6648C292E46BE00981863 /* CoinsListEmpty+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListEmpty+Json.swift"; sourceTree = "<group>"; };
+		55A6648E292E926E00981863 /* CoinsListUseCase+Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListUseCase+Parameters.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A66434292C0AD700981863 /* SKRools in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,11 +149,11 @@
 		55A663F9292C097900981863 /* Cryptocompare */ = {
 			isa = PBXGroup;
 			children = (
+				55A66435292C0B7F00981863 /* Extensions */,
+				55A6642D292C09BD00981863 /* Features */,
+				55A6642E292C09C900981863 /* Resources */,
 				55A663FA292C097900981863 /* AppDelegate.swift */,
-				55A663FC292C097900981863 /* SceneDelegate.swift */,
-				55A663FE292C097900981863 /* ViewController.swift */,
 				55A66400292C097900981863 /* Main.storyboard */,
-				55A66406292C097A00981863 /* Assets.xcassets */,
 				55A66408292C097A00981863 /* LaunchScreen.storyboard */,
 				55A6640B292C097A00981863 /* Info.plist */,
 				55A66403292C097900981863 /* Cryptocompare.xcdatamodeld */,
@@ -116,6 +164,8 @@
 		55A66413292C097A00981863 /* CryptocompareTests */ = {
 			isa = PBXGroup;
 			children = (
+				55A66477292D201900981863 /* Mocks */,
+				55A66474292D1F8F00981863 /* Domain */,
 				55A66414292C097A00981863 /* CryptocompareTests.swift */,
 			);
 			path = CryptocompareTests;
@@ -130,6 +180,203 @@
 			path = CryptocompareUITests;
 			sourceTree = "<group>";
 		};
+		55A6642D292C09BD00981863 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				55A6645A292CD48300981863 /* Domain */,
+				55A66445292C222C00981863 /* Data */,
+				55A6642F292C0A8F00981863 /* Presentation */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		55A6642E292C09C900981863 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				55A66406292C097A00981863 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		55A6642F292C0A8F00981863 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				55A66439292C0BC700981863 /* HomeView */,
+				55A66438292C0BBF00981863 /* SetupView */,
+				55A66430292C0AA500981863 /* MainCoordinator.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		55A66435292C0B7F00981863 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				55A66436292C0B9E00981863 /* String+Localized.swift */,
+				55A66440292C109900981863 /* UIFont+CustomFonts.swift */,
+				55A66442292C10A800981863 /* UIColors+CustomColors.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		55A66438292C0BBF00981863 /* SetupView */ = {
+			isa = PBXGroup;
+			children = (
+				55A6643A292C0F2000981863 /* View */,
+			);
+			path = SetupView;
+			sourceTree = "<group>";
+		};
+		55A66439292C0BC700981863 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				55A6643D292C0F4000981863 /* View */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		55A6643A292C0F2000981863 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55A6643B292C0F3A00981863 /* Setup+View.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55A6643D292C0F4000981863 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55A6643E292C0F5000981863 /* Home+View.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		55A66445292C222C00981863 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				55A66447292C223B00981863 /* Repository */,
+				55A66446292C223300981863 /* Decodables */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		55A66446292C223300981863 /* Decodables */ = {
+			isa = PBXGroup;
+			children = (
+				55A6644A292C226300981863 /* Coins+Decodable.swift */,
+				55A6644C292C24B200981863 /* CoinsList+Decodable.swift */,
+				55A66458292C2A9F00981863 /* CoinsListPrice+Decodable.swift */,
+			);
+			path = Decodables;
+			sourceTree = "<group>";
+		};
+		55A66447292C223B00981863 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				55A66455292C297F00981863 /* CoinsListPrice */,
+				55A66454292C296D00981863 /* CoinsList */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		55A66454292C296D00981863 /* CoinsList */ = {
+			isa = PBXGroup;
+			children = (
+				55A66450292C277300981863 /* CoinsList+Repository.swift */,
+				55A6644E292C276700981863 /* CoinsListRepository+Parameters.swift */,
+			);
+			path = CoinsList;
+			sourceTree = "<group>";
+		};
+		55A66455292C297F00981863 /* CoinsListPrice */ = {
+			isa = PBXGroup;
+			children = (
+				55A66452292C296700981863 /* CoinsListPrice+Repository.swift */,
+				55A66456292C29A000981863 /* CointsListPriceRepository+Parameters.swift */,
+			);
+			path = CoinsListPrice;
+			sourceTree = "<group>";
+		};
+		55A6645A292CD48300981863 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				55A6645D292CD52900981863 /* Entity */,
+				55A6645C292CD52200981863 /* UseCase */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		55A6645C292CD52200981863 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				55A66464292CDF9800981863 /* CoinsList */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		55A6645D292CD52900981863 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				55A6646A292CE1DC00981863 /* Coins */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		55A66464292CDF9800981863 /* CoinsList */ = {
+			isa = PBXGroup;
+			children = (
+				55A66465292CDFAF00981863 /* CoinsList+UseCase.swift */,
+				55A6648E292E926E00981863 /* CoinsListUseCase+Parameters.swift */,
+			);
+			path = CoinsList;
+			sourceTree = "<group>";
+		};
+		55A6646A292CE1DC00981863 /* Coins */ = {
+			isa = PBXGroup;
+			children = (
+				55A6646D292CE27400981863 /* Coin+Entity.swift */,
+			);
+			path = Coins;
+			sourceTree = "<group>";
+		};
+		55A66474292D1F8F00981863 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				55A66475292D1FC200981863 /* CoinsListUseCase+Test.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		55A66477292D201900981863 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				55A66478292D202000981863 /* Data */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		55A66478292D202000981863 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				55A66489292E1C4900981863 /* Raw */,
+				55A6647F292D212F00981863 /* CoinsListRepository+Mock.swift */,
+				55A66483292D787100981863 /* CoinsListPriceRepository+Mock.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		55A66489292E1C4900981863 /* Raw */ = {
+			isa = PBXGroup;
+			children = (
+				55A66487292E1C1400981863 /* CoinsLargeListPrice+Json.swift */,
+				55A6647D292D20DF00981863 /* CoinsList+Json.swift */,
+				55A66481292D758800981863 /* CoinsListPrice+Json.swift */,
+				55A66485292E138100981863 /* CoinsLargeList+Json.swift */,
+				55A6648A292E467B00981863 /* CoinsListPriceEmpty+Json.swift */,
+				55A6648C292E46BE00981863 /* CoinsListEmpty+Json.swift */,
+			);
+			path = Raw;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,12 +387,16 @@
 				55A663F3292C097900981863 /* Sources */,
 				55A663F4292C097900981863 /* Frameworks */,
 				55A663F5292C097900981863 /* Resources */,
+				55A66444292C128100981863 /* SwiftLint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Cryptocompare;
+			packageProductDependencies = (
+				55A66433292C0AD700981863 /* SKRools */,
+			);
 			productName = Cryptocompare;
 			productReference = 55A663F7292C097900981863 /* Cryptocompare.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +469,9 @@
 				Base,
 			);
 			mainGroup = 55A663EE292C097900981863;
+			packageReferences = (
+				55A66432292C0AD700981863 /* XCRemoteSwiftPackageReference "SKRools" */,
+			);
 			productRefGroup = 55A663F8292C097900981863 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -256,15 +510,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		55A66444292C128100981863 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		55A663F3292C097900981863 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55A663FF292C097900981863 /* ViewController.swift in Sources */,
+				55A6644D292C24B200981863 /* CoinsList+Decodable.swift in Sources */,
+				55A66457292C29A000981863 /* CointsListPriceRepository+Parameters.swift in Sources */,
+				55A6648F292E926E00981863 /* CoinsListUseCase+Parameters.swift in Sources */,
+				55A6643C292C0F3A00981863 /* Setup+View.swift in Sources */,
+				55A66437292C0B9E00981863 /* String+Localized.swift in Sources */,
 				55A663FB292C097900981863 /* AppDelegate.swift in Sources */,
+				55A6643F292C0F5000981863 /* Home+View.swift in Sources */,
+				55A6644F292C276700981863 /* CoinsListRepository+Parameters.swift in Sources */,
+				55A66453292C296700981863 /* CoinsListPrice+Repository.swift in Sources */,
+				55A66441292C109900981863 /* UIFont+CustomFonts.swift in Sources */,
 				55A66405292C097900981863 /* Cryptocompare.xcdatamodeld in Sources */,
-				55A663FD292C097900981863 /* SceneDelegate.swift in Sources */,
+				55A66466292CDFAF00981863 /* CoinsList+UseCase.swift in Sources */,
+				55A66443292C10A800981863 /* UIColors+CustomColors.swift in Sources */,
+				55A6646E292CE27400981863 /* Coin+Entity.swift in Sources */,
+				55A6644B292C226300981863 /* Coins+Decodable.swift in Sources */,
+				55A66431292C0AA500981863 /* MainCoordinator.swift in Sources */,
+				55A66451292C277300981863 /* CoinsList+Repository.swift in Sources */,
+				55A66459292C2A9F00981863 /* CoinsListPrice+Decodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +562,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A6647E292D20DF00981863 /* CoinsList+Json.swift in Sources */,
+				55A66476292D1FC200981863 /* CoinsListUseCase+Test.swift in Sources */,
+				55A6648B292E467B00981863 /* CoinsListPriceEmpty+Json.swift in Sources */,
+				55A66484292D787100981863 /* CoinsListPriceRepository+Mock.swift in Sources */,
+				55A6648D292E46BE00981863 /* CoinsListEmpty+Json.swift in Sources */,
+				55A66480292D212F00981863 /* CoinsListRepository+Mock.swift in Sources */,
+				55A66488292E1C1400981863 /* CoinsLargeListPrice+Json.swift in Sources */,
 				55A66415292C097A00981863 /* CryptocompareTests.swift in Sources */,
+				55A66486292E138100981863 /* CoinsLargeList+Json.swift in Sources */,
+				55A66482292D758800981863 /* CoinsListPrice+Json.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,6 +905,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		55A66432292C0AD700981863 /* XCRemoteSwiftPackageReference "SKRools" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cardona/SKRools";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		55A66433292C0AD700981863 /* SKRools */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55A66432292C0AD700981863 /* XCRemoteSwiftPackageReference "SKRools" */;
+			productName = SKRools;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		55A66403292C097900981863 /* Cryptocompare.xcdatamodeld */ = {

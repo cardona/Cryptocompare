@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "skrools",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/cardona/SKRools",
+      "state" : {
+        "revision" : "cd58af7d8bd71ed570e54377c1b35ce0508483ea",
+        "version" : "1.0.7"
+      }
+    }
+  ],
+  "version" : 2
+}
