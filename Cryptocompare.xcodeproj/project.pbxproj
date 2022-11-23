@@ -40,6 +40,7 @@
 		55A66488292E1C1400981863 /* CoinsLargeListPrice+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66487292E1C1400981863 /* CoinsLargeListPrice+Json.swift */; };
 		55A6648B292E467B00981863 /* CoinsListPriceEmpty+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6648A292E467B00981863 /* CoinsListPriceEmpty+Json.swift */; };
 		55A6648D292E46BE00981863 /* CoinsListEmpty+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6648C292E46BE00981863 /* CoinsListEmpty+Json.swift */; };
+		55A6648F292E926E00981863 /* CoinsListUseCase+Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6648E292E926E00981863 /* CoinsListUseCase+Parameters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		55A66487292E1C1400981863 /* CoinsLargeListPrice+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsLargeListPrice+Json.swift"; sourceTree = "<group>"; };
 		55A6648A292E467B00981863 /* CoinsListPriceEmpty+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListPriceEmpty+Json.swift"; sourceTree = "<group>"; };
 		55A6648C292E46BE00981863 /* CoinsListEmpty+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListEmpty+Json.swift"; sourceTree = "<group>"; };
+		55A6648E292E926E00981863 /* CoinsListUseCase+Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListUseCase+Parameters.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				55A66465292CDFAF00981863 /* CoinsList+UseCase.swift */,
+				55A6648E292E926E00981863 /* CoinsListUseCase+Parameters.swift */,
 			);
 			path = CoinsList;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 			files = (
 				55A6644D292C24B200981863 /* CoinsList+Decodable.swift in Sources */,
 				55A66457292C29A000981863 /* CointsListPriceRepository+Parameters.swift in Sources */,
+				55A6648F292E926E00981863 /* CoinsListUseCase+Parameters.swift in Sources */,
 				55A6643C292C0F3A00981863 /* Setup+View.swift in Sources */,
 				55A66437292C0B9E00981863 /* String+Localized.swift in Sources */,
 				55A663FB292C097900981863 /* AppDelegate.swift in Sources */,

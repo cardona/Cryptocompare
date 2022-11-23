@@ -24,4 +24,18 @@ extension CoinsListUseCaseTest {
             return nil
         }
     }
+
+    final class CoinsLargeListPriceRepositorySuccessMock: CoinsListPriceRepository {
+        func request(parameters: CoinsListPriceRepositoryParameters, completion: @escaping (Result<[String : CoinsListPriceDecodable], DataTransferError>) -> Void) -> Cancellable? {
+            let decoder = JSONDecoder()
+            let json = CoinsLargeListPriceJsonMock.makeJsonMock()
+            if let decodable = try? decoder.decode([String : CoinsListPriceDecodable].self, from: json) {
+                completion(.success(decodable))
+            } else {
+                XCTFail("Bad Coins Price JSON Mockup")
+            }
+
+            return nil
+        }
+    }
 }

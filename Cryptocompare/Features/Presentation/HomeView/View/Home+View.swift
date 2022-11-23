@@ -10,5 +10,4 @@ import UIKit
 
 final class HomeView: UIViewController {
     weak var coordinator: MainCoordinator?
-    
 }

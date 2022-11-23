@@ -14,7 +14,7 @@ final class CoinsListEmptyJsonMock: XCTestCase {
 {
    "Response":"Success",
    "Message":"Summary coin list succesfully returned!",
-   "Data":{},
+   "Data": null,
    "RateLimit":{
 
    },
