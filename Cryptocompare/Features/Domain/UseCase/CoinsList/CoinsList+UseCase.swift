@@ -11,13 +11,21 @@ import SKRools
 typealias CompletionBlock = (Result<[CoinEntity], SKError>) -> Void
 
 protocol CoinsListUseCase {
+    /// Returns all the currencies in the list in a paginated way,
+    /// you can modify the pagination offset and the output currency via the parameters
+    ///
+    /// - Parameters
+    ///     - Total: The total number of items you receive in each page
+    ///     - Symbol: Determines the output currency type
+    ///
+    /// - Returns: An array with the list of coins or an error if something goes wrong
     func execute(parameters: CoinsListUseCaseParameters, completion: @escaping CompletionBlock)
 }
 
 final class DefaultCoinsListUseCase: CoinsListUseCase {
     private var coinsRepository: CoinsListRepository?
     private var priceRepository: CoinsListPriceRepository?
-    private var bufferCoins: [CoinEntity]?
+    private var noPriceCoins: [CoinEntity]?
     private var currentCoins: [CoinEntity]? = []
 
     init(coinsRepository: CoinsListRepository = DefaultCoinsListRepository(),
@@ -27,82 +35,136 @@ final class DefaultCoinsListUseCase: CoinsListUseCase {
     }
 
     func execute(parameters: CoinsListUseCaseParameters, completion: @escaping CompletionBlock) {
-        if let currentCoins = currentCoins, bufferCoins?.isEmpty ?? false {
+        if let currentCoins = currentCoins, noPriceCoins?.isEmpty ?? false {
             // Returns cached coins
             completion(.success(currentCoins))
-        } else if bufferCoins == nil {
+        } else if noPriceCoins == nil {
             // initialitze the cache
-            bufferCoins = []
+            noPriceCoins = []
             // Prepare coins buffer
-            makeBufferCoinsList(completion: completion)
+            retrieveCoinsList(completion: { [weak self] error in
+                if let error = error {
+                    completion(.failure(error))
+                } else {
+                    // Request from the next items
+                    self?.retrieveCoinPrice(parameters: parameters, completion: completion)
+                }
+            })
         } else {
             // Request from the next items
-            matchCoinPrice(parameters: parameters, completion: completion)
+            retrieveCoinPrice(parameters: parameters, completion: completion)
         }
     }
+}
 
-    private func makeBufferCoinsList(completion: @escaping CompletionBlock) {
+// MARK: - Coins List
+private extension DefaultCoinsListUseCase {
+    /// Retrieves the entire list of coins from the API,
+    /// uses the summary parameter to reduce the total data downloaded
+    ///
+    /// - Returns: An error if the service fails or nil if everything ends well
+    private func retrieveCoinsList(completion: @escaping (SKError?) -> Void) {
         let params = CoinsListRepositoryParameters(summary: true)
         coinsRepository?.request(parameters: params, completion: { [weak self] result in
             switch result {
             case .success(let decodable):
-                if let data = decodable.data {
-                    var currentBuffer: [CoinEntity] = []
-                    for (_, value) in data {
-                        let entity = CoinEntity(decodable: value)
-                        currentBuffer.append(entity)
-                    }
-                    self?.bufferCoins = currentBuffer.sorted()
-                    self?.matchCoinPrice(parameters: CoinsListUseCaseParameters(total: 20), completion: completion)
-                } else {
-                    completion(.failure(.emptyData))
-                }
+                self?.makeCoinsList(decodable: decodable, completion: completion)
             case .failure(let error):
-                completion(.failure(error.skError))
+                completion(error.skError)
             }
         })
     }
 
-    private func matchCoinPrice(parameters: CoinsListUseCaseParameters, completion: @escaping CompletionBlock) {
+    /// Parses all items in the list to entities and sorts them in alphabetical order
+    ///
+    /// - Parameters
+    ///    - decodable: a CoinsListDecodable
+    ///
+    /// - Returns: An error if the service fails or nil if everything ends well
+    private func makeCoinsList(decodable: CoinsListDecodable, completion: @escaping (SKError?) -> Void) {
+        if let data = decodable.data {
+            var currentBuffer: [CoinEntity] = []
+            for (_, value) in data {
+                let entity = CoinEntity(decodable: value)
+                currentBuffer.append(entity)
+            }
+            noPriceCoins = currentBuffer.sorted()
+            completion(nil)
+        } else {
+            completion(.emptyData)
+        }
+    }
+}
+
+// MARK: - Price List
+private extension DefaultCoinsListUseCase {
+    /// Use the repository to requests the api for the price of a group of coins
+    ///
+    /// - Parameters
+    ///     - Total: The total number of items you receive in each page
+    ///     - Symbol: Determines the output currency type
+    ///
+    /// - Returns: An array with the list of coins or an error if something goes wrong
+    private func retrieveCoinPrice(parameters: CoinsListUseCaseParameters, completion: @escaping CompletionBlock) {
         let nextCoins = nextCoinsWithoutPrice(number: parameters.total)
         let symbols = nextCoins.compactMap { $0.symbol }
-        let params = CoinsListPriceRepositoryParameters(fsyms: symbols, tsyms: ["EUR"])
+        let currency = parameters.symbol.rawValue.uppercased()
+        let params = CoinsListPriceRepositoryParameters(fsyms: symbols, tsyms: [currency])
 
         priceRepository?.request(parameters: params, completion: { [weak self] result in
             switch result {
             case .success(let decodable):
-                var coins: [CoinEntity] = []
-                for (key, value) in decodable {
-                    if var coin = nextCoins.first(where: { $0.symbol == key }) {
-                        if let price = value.price, price > 0 {
-                            coin.price = value.price
-                            coins.append(coin)
-                        }
-                    }
-                }
-                self?.currentCoins?.append(contentsOf: coins.sorted())
-                if let currentCoins = self?.currentCoins, !coins.isEmpty {
-                    completion(.success(currentCoins))
-                } else {
-                    completion(.failure(SKError.emptyData))
-                }
+                self?.matchCoinPrice(decodable: decodable, nextCoins: nextCoins, completion: completion)
             case .failure(let error):
                 completion(.failure(error.skError))
             }
         })
     }
 
+    /// Retrieves a specified number of items from the coin list with no price
+    ///
+    /// - Parameters
+    ///     - number: Maximum items to receive
     private func nextCoinsWithoutPrice(number: Int) -> [CoinEntity] {
-        guard let currentBuffer = bufferCoins else { return [] }
+        guard let bufferCoins = noPriceCoins else { return [] }
 
-        if currentBuffer.count > number, let nextCoins = bufferCoins?[0...number - 1] {
-                bufferCoins?.removeFirst(number)
+        if bufferCoins.count > number, let nextCoins = noPriceCoins?[0...number - 1] {
+            noPriceCoins?.removeFirst(number)
 
                 return Array(nextCoins)
         } else {
-            bufferCoins?.removeFirst(currentBuffer.count)
+            noPriceCoins?.removeFirst(bufferCoins.count)
 
-            return currentBuffer
+            return bufferCoins
+        }
+    }
+}
+
+// MARK: - Match Coin Price
+private extension DefaultCoinsListUseCase {
+    /// Parses all price items and match with their coin
+    ///  if a coin does not have a match it is discarded, when the entire list
+    ///  of items has a price, the coins are added to the currentCoins
+    ///
+    /// - Parameters
+    ///    - decodable: an array of dictionaries where the key is the symbol and the value is the price
+    ///
+    /// - Returns: An error if the service fails or nil if everything ends well
+    private func matchCoinPrice(decodable: [String: CoinsListPriceDecodable], nextCoins: [CoinEntity], completion: @escaping CompletionBlock) {
+        var coins: [CoinEntity] = []
+        for (key, value) in decodable {
+            if var coin = nextCoins.first(where: { $0.symbol == key }) {
+                if let price = value.price, price > 0 {
+                    coin.price = value.price
+                    coins.append(coin)
+                }
+            }
+        }
+        currentCoins?.append(contentsOf: coins.sorted())
+        if let currentCoins = currentCoins, !coins.isEmpty {
+            completion(.success(currentCoins))
+        } else {
+            completion(.failure(SKError.emptyData))
         }
     }
 }
