@@ -19,7 +19,7 @@ final class CoinDetailUseCaseTest: XCTestCase {
         // create mocked success repository
         let repository = CoinDetailRepositorySuccessMock()
         // create fake parameters
-        let parameters = CoinDetailUseCaseParameters(symbol: "FAKE")
+        let parameters = CoinDetailUseCaseParameters(symbol: "ETH")
         // Inject mocked mockup into useCase
         let useCase: CoinDetailUseCase = DefaultCoinDetailUseCase(repository: repository)
 
@@ -28,7 +28,7 @@ final class CoinDetailUseCaseTest: XCTestCase {
             // THEN
             switch result {
             case .success(let entity):
-                XCTAssertEqual(entity.count, 1)
+                XCTAssertEqual(entity.openDay, 1102.75)
 //                XCTAssertEqual(entity, "BitcoinDark (BTCD)")
 //                XCTAssertEqual(entity.first?.symbol, "BTCD")
 //                XCTAssertEqual(entity.first?.price, 48.45)

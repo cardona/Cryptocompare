@@ -9,7 +9,7 @@ import Foundation
 import SKRools
 
 //typealias CoinDetailResultType = [String: [String: [String: CoinDetailDecodable]]]
-typealias CoinDetailResultType = [String: [String: [String: [String: String]]]]
+typealias CoinDetailResultType = CoinDetailDataDecodable
 
 protocol CoinDetailRepository {
     @discardableResult
