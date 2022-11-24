@@ -26,8 +26,10 @@ final class DefaultCoinDetailUseCase: CoinDetailUseCase {
     }
 
     func execute(parameters: CoinDetailUseCaseParameters, completion: @escaping (Result<CoinDetailsEntity, SKError>) -> Void) {
+        // TODO: get apiKey from useCase, use a guard to return an error if necessary
+        let apiKey = ""
         if let symbol = parameters.symbol {
-            let params = CoinDetailRepositoryParameters(symbol: [symbol], currency: ["EUR"])
+            let params = CoinDetailRepositoryParameters(apiKey: apiKey, symbol: [symbol], currency: ["EUR"])
             repository?.request(parameters: params, completion: { result in
                 switch result {
                 case .success(let decodable):

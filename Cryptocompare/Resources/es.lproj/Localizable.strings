@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Cryptocompare
+
+  Created by oscar on 24/11/22.
+  
+*/
+
+"emptyState" = "Trabajando duro, para conseguir tus datos.";
+"try_again_key" = "Intentar otra vez.";
+"unknow_error_key" = "Error desconocido";
+"access_denied_key" = "Acceso denegado";
+"ok_key" = "Aceptar";
+"alert_title_key" = "Alerta";
+"setupview_description_key" = "Para ejecutar esta aplicación, es necesario poner las claves de la API de Marvel en appdelegate o introducir aquí en los campos de texto.
+Para obtener una clave de la API de Cryptocompare debes ir a https://cryptocompare.com";
+"setupview_title_key" = "Pon tus claves api de Cryptocompare aquí";
+"last_animation_text" = "¿Qué coño estás haciendo? ¿No quieres ver la aplicación? por favor pon las keys y continua";
+"continue_key" = "Continuar";

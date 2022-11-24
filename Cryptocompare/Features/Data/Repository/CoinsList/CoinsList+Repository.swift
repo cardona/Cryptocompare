@@ -30,6 +30,8 @@ extension DefaultCoinsListRepository {
         let url = DefaultCoinsListRepository.url()
         url.method = .get
 
+        url.headerParamaters = ["authorization": "Apikey \(parameters.apiKey)"]
+
         let networkTask = self.dataTransferService.request(with: url, completion: completion)
 
         return RepositoryTask(networkTask: networkTask)

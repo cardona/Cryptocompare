@@ -64,7 +64,9 @@ private extension DefaultCoinsListUseCase {
     ///
     /// - Returns: An error if the service fails or nil if everything ends well
     private func retrieveCoinsList(completion: @escaping (SKError?) -> Void) {
-        let params = CoinsListRepositoryParameters(summary: true)
+        // TODO: get apiKey from useCase, use a guard to return an error if necessary
+        let apiKey = ""
+        let params = CoinsListRepositoryParameters(apiKey: apiKey, summary: true)
         coinsRepository?.request(parameters: params, completion: { [weak self] result in
             switch result {
             case .success(let decodable):
@@ -109,7 +111,9 @@ private extension DefaultCoinsListUseCase {
         let nextCoins = nextCoinsWithoutPrice(number: parameters.total)
         let symbols = nextCoins.compactMap { $0.symbol }
         let currency = parameters.symbol.rawValue.uppercased()
-        let params = CoinsListPriceRepositoryParameters(fsyms: symbols, tsyms: [currency])
+        // TODO: Get apiKey from keychain
+        let apiKey = ""
+        let params = CoinsListPriceRepositoryParameters(apiKey: apiKey, fsyms: symbols, tsyms: [currency])
 
         priceRepository?.request(parameters: params, completion: { [weak self] result in
             switch result {

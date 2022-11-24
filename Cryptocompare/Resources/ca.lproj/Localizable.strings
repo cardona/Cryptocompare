@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  Cryptocompare
+
+  Created by oscar on 24/11/22.
+  
+*/
+
+"emptyState" = "Treballant dur, per aconseguir les teves dades.";
+"try_again_key" = "Torna-ho a provar.";
+"unknow_error_key" = "Error desconegut";
+"access_denied_key" = "Accés denegat";
+"ok_key" = "Acceptar";
+"alert_title_key" = "Alerta";
+"setupview_description_key" = "Per executar aquesta aplicació, cal posar la keys de l'API de Cryptocompare a appdelegate o introduir aquí als camps de text.
+Per obtenir una key de l'API de Cryptocompare has d'anar a https://cryptocompare.com";
+"setupview_title_key" = "Posa la teva key de l'API de Cryptocompare";
+"last_animation_text" = "Què cony estàs fent? No vols veure l'app? posa les keys i continua";
+"continue_key" = "Continuar";
+

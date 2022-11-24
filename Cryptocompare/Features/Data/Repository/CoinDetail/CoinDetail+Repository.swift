@@ -36,6 +36,8 @@ extension DefaultCoinDetailRepository {
         param["fsyms"] = symbols
         param["tsyms"] = currency
 
+        url.headerParamaters = ["authorization": "Apikey \(parameters.apiKey)"]
+
         let networkTask = self.dataTransferService.request(with: url, completion: completion)
 
         return RepositoryTask(networkTask: networkTask)

@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		556C7F77292F8E13005A82A0 /* 127399-cycle-rider.json in Resources */ = {isa = PBXBuildFile; fileRef = 556C7F6F292F8E12005A82A0 /* 127399-cycle-rider.json */; };
+		556C7F78292F8E13005A82A0 /* 43885-laptop-working.json in Resources */ = {isa = PBXBuildFile; fileRef = 556C7F70292F8E12005A82A0 /* 43885-laptop-working.json */; };
+		556C7F79292F8E13005A82A0 /* 18123-developer.json in Resources */ = {isa = PBXBuildFile; fileRef = 556C7F71292F8E12005A82A0 /* 18123-developer.json */; };
+		556C7F7A292F8E13005A82A0 /* 16766-forget-password-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 556C7F72292F8E12005A82A0 /* 16766-forget-password-animation.json */; };
+		556C7F7B292F8E13005A82A0 /* 106069-thinking.json in Resources */ = {isa = PBXBuildFile; fileRef = 556C7F73292F8E12005A82A0 /* 106069-thinking.json */; };
+		556C7F7C292F8E13005A82A0 /* 88724-thinking.json in Resources */ = {isa = PBXBuildFile; fileRef = 556C7F74292F8E13005A82A0 /* 88724-thinking.json */; };
+		556C7F7D292F8E13005A82A0 /* 98991-exams-preparation.json in Resources */ = {isa = PBXBuildFile; fileRef = 556C7F75292F8E13005A82A0 /* 98991-exams-preparation.json */; };
+		556C7F7E292F8E13005A82A0 /* 121529-businessman-balancing-on-time-unicycle.json in Resources */ = {isa = PBXBuildFile; fileRef = 556C7F76292F8E13005A82A0 /* 121529-businessman-balancing-on-time-unicycle.json */; };
+		556C7F81292F8EA4005A82A0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 556C7F83292F8EA4005A82A0 /* Localizable.strings */; };
 		55A663FB292C097900981863 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A663FA292C097900981863 /* AppDelegate.swift */; };
 		55A66402292C097900981863 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55A66400292C097900981863 /* Main.storyboard */; };
 		55A66405292C097900981863 /* Cryptocompare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55A66403292C097900981863 /* Cryptocompare.xcdatamodeld */; };
@@ -51,6 +60,14 @@
 		55A664A5292ECBF000981863 /* CoinDetailUseCase+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A664A4292ECBEF00981863 /* CoinDetailUseCase+Test.swift */; };
 		55A664A7292ECC3500981863 /* CoinDetailRepository+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A664A6292ECC3500981863 /* CoinDetailRepository+Mock.swift */; };
 		55A664AD292F63C300981863 /* CoinDetailRaw+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A664AC292F63C300981863 /* CoinDetailRaw+Decodable.swift */; };
+		55A664B0292F85E700981863 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 55A664AF292F85E700981863 /* Lottie */; };
+		55A664B2292F862200981863 /* SetupView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A664B1292F862200981863 /* SetupView+Constraints.swift */; };
+		55A664B6292F867000981863 /* KeysFields+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A664B5292F867000981863 /* KeysFields+Model.swift */; };
+		55A664B8292F868400981863 /* KeysFields+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A664B7292F868400981863 /* KeysFields+View.swift */; };
+		55A664BA292F869500981863 /* KeysFields+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A664B9292F869500981863 /* KeysFields+Constraints.swift */; };
+		55A664BC292F86A500981863 /* KeysFields+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A664BB292F86A500981863 /* KeysFields+Protocol.swift */; };
+		55A664C0292F873D00981863 /* SetupView+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A664BF292F873D00981863 /* SetupView+Model.swift */; };
+		55A664C2292F874C00981863 /* SetupView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A664C1292F874C00981863 /* SetupView+ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +88,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		556C7F6F292F8E12005A82A0 /* 127399-cycle-rider.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "127399-cycle-rider.json"; sourceTree = "<group>"; };
+		556C7F70292F8E12005A82A0 /* 43885-laptop-working.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "43885-laptop-working.json"; sourceTree = "<group>"; };
+		556C7F71292F8E12005A82A0 /* 18123-developer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "18123-developer.json"; sourceTree = "<group>"; };
+		556C7F72292F8E12005A82A0 /* 16766-forget-password-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "16766-forget-password-animation.json"; sourceTree = "<group>"; };
+		556C7F73292F8E12005A82A0 /* 106069-thinking.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "106069-thinking.json"; sourceTree = "<group>"; };
+		556C7F74292F8E13005A82A0 /* 88724-thinking.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "88724-thinking.json"; sourceTree = "<group>"; };
+		556C7F75292F8E13005A82A0 /* 98991-exams-preparation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "98991-exams-preparation.json"; sourceTree = "<group>"; };
+		556C7F76292F8E13005A82A0 /* 121529-businessman-balancing-on-time-unicycle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "121529-businessman-balancing-on-time-unicycle.json"; sourceTree = "<group>"; };
+		556C7F82292F8EA4005A82A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		556C7F84292F8EBC005A82A0 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Localizable.strings; sourceTree = "<group>"; };
+		556C7F85292F8ECD005A82A0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		55A663F7292C097900981863 /* Cryptocompare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptocompare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A663FA292C097900981863 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55A66401292C097900981863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -118,6 +146,13 @@
 		55A664A4292ECBEF00981863 /* CoinDetailUseCase+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetailUseCase+Test.swift"; sourceTree = "<group>"; };
 		55A664A6292ECC3500981863 /* CoinDetailRepository+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetailRepository+Mock.swift"; sourceTree = "<group>"; };
 		55A664AC292F63C300981863 /* CoinDetailRaw+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetailRaw+Decodable.swift"; sourceTree = "<group>"; };
+		55A664B1292F862200981863 /* SetupView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetupView+Constraints.swift"; sourceTree = "<group>"; };
+		55A664B5292F867000981863 /* KeysFields+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeysFields+Model.swift"; sourceTree = "<group>"; };
+		55A664B7292F868400981863 /* KeysFields+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeysFields+View.swift"; sourceTree = "<group>"; };
+		55A664B9292F869500981863 /* KeysFields+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeysFields+Constraints.swift"; sourceTree = "<group>"; };
+		55A664BB292F86A500981863 /* KeysFields+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeysFields+Protocol.swift"; sourceTree = "<group>"; };
+		55A664BF292F873D00981863 /* SetupView+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetupView+Model.swift"; sourceTree = "<group>"; };
+		55A664C1292F874C00981863 /* SetupView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetupView+ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55A66434292C0AD700981863 /* SKRools in Frameworks */,
+				55A664B0292F85E700981863 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +182,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		556C7F6E292F8DE7005A82A0 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				556C7F72292F8E12005A82A0 /* 16766-forget-password-animation.json */,
+				556C7F71292F8E12005A82A0 /* 18123-developer.json */,
+				556C7F70292F8E12005A82A0 /* 43885-laptop-working.json */,
+				556C7F74292F8E13005A82A0 /* 88724-thinking.json */,
+				556C7F75292F8E13005A82A0 /* 98991-exams-preparation.json */,
+				556C7F73292F8E12005A82A0 /* 106069-thinking.json */,
+				556C7F76292F8E13005A82A0 /* 121529-businessman-balancing-on-time-unicycle.json */,
+				556C7F6F292F8E12005A82A0 /* 127399-cycle-rider.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		55A663EE292C097900981863 = {
 			isa = PBXGroup;
 			children = (
@@ -213,7 +264,9 @@
 		55A6642E292C09C900981863 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				556C7F6E292F8DE7005A82A0 /* Animations */,
 				55A66406292C097A00981863 /* Assets.xcassets */,
+				556C7F83292F8EA4005A82A0 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -221,6 +274,7 @@
 		55A6642F292C0A8F00981863 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				55A664B3292F864000981863 /* Components */,
 				55A66439292C0BC700981863 /* HomeView */,
 				55A66438292C0BBF00981863 /* SetupView */,
 				55A66430292C0AA500981863 /* MainCoordinator.swift */,
@@ -241,7 +295,9 @@
 		55A66438292C0BBF00981863 /* SetupView */ = {
 			isa = PBXGroup;
 			children = (
+				55A664BE292F872700981863 /* Model */,
 				55A6643A292C0F2000981863 /* View */,
+				55A664BD292F872000981863 /* ViewModel */,
 			);
 			path = SetupView;
 			sourceTree = "<group>";
@@ -258,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				55A6643B292C0F3A00981863 /* Setup+View.swift */,
+				55A664B1292F862200981863 /* SetupView+Constraints.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -439,6 +496,41 @@
 			path = CoinDetail;
 			sourceTree = "<group>";
 		};
+		55A664B3292F864000981863 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				55A664B4292F865300981863 /* KeysFieldsView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		55A664B4292F865300981863 /* KeysFieldsView */ = {
+			isa = PBXGroup;
+			children = (
+				55A664B5292F867000981863 /* KeysFields+Model.swift */,
+				55A664B7292F868400981863 /* KeysFields+View.swift */,
+				55A664B9292F869500981863 /* KeysFields+Constraints.swift */,
+				55A664BB292F86A500981863 /* KeysFields+Protocol.swift */,
+			);
+			path = KeysFieldsView;
+			sourceTree = "<group>";
+		};
+		55A664BD292F872000981863 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				55A664C1292F874C00981863 /* SetupView+ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		55A664BE292F872700981863 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55A664BF292F873D00981863 /* SetupView+Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -458,6 +550,7 @@
 			name = Cryptocompare;
 			packageProductDependencies = (
 				55A66433292C0AD700981863 /* SKRools */,
+				55A664AF292F85E700981863 /* Lottie */,
 			);
 			productName = Cryptocompare;
 			productReference = 55A663F7292C097900981863 /* Cryptocompare.app */;
@@ -529,10 +622,13 @@
 			knownRegions = (
 				en,
 				Base,
+				ca,
+				es,
 			);
 			mainGroup = 55A663EE292C097900981863;
 			packageReferences = (
 				55A66432292C0AD700981863 /* XCRemoteSwiftPackageReference "SKRools" */,
+				55A664AE292F85E700981863 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 55A663F8292C097900981863 /* Products */;
 			projectDirPath = "";
@@ -550,8 +646,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				556C7F7C292F8E13005A82A0 /* 88724-thinking.json in Resources */,
+				556C7F81292F8EA4005A82A0 /* Localizable.strings in Resources */,
+				556C7F7D292F8E13005A82A0 /* 98991-exams-preparation.json in Resources */,
 				55A6640A292C097A00981863 /* LaunchScreen.storyboard in Resources */,
+				556C7F7E292F8E13005A82A0 /* 121529-businessman-balancing-on-time-unicycle.json in Resources */,
+				556C7F7A292F8E13005A82A0 /* 16766-forget-password-animation.json in Resources */,
+				556C7F78292F8E13005A82A0 /* 43885-laptop-working.json in Resources */,
+				556C7F7B292F8E13005A82A0 /* 106069-thinking.json in Resources */,
 				55A66407292C097A00981863 /* Assets.xcassets in Resources */,
+				556C7F77292F8E13005A82A0 /* 127399-cycle-rider.json in Resources */,
+				556C7F79292F8E13005A82A0 /* 18123-developer.json in Resources */,
 				55A66402292C097900981863 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -599,11 +704,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A664BA292F869500981863 /* KeysFields+Constraints.swift in Sources */,
 				55A6644D292C24B200981863 /* CoinsList+Decodable.swift in Sources */,
+				55A664C0292F873D00981863 /* SetupView+Model.swift in Sources */,
 				55A66457292C29A000981863 /* CointsListPriceRepository+Parameters.swift in Sources */,
 				55A6648F292E926E00981863 /* CoinsListUseCase+Parameters.swift in Sources */,
 				55A66491292EBAE200981863 /* CoinDetail+Decodable.swift in Sources */,
 				55A6643C292C0F3A00981863 /* Setup+View.swift in Sources */,
+				55A664BC292F86A500981863 /* KeysFields+Protocol.swift in Sources */,
+				55A664B6292F867000981863 /* KeysFields+Model.swift in Sources */,
 				55A664A3292EC6B400981863 /* CoinDetailUseCase+Parameters.swift in Sources */,
 				55A66437292C0B9E00981863 /* String+Localized.swift in Sources */,
 				55A663FB292C097900981863 /* AppDelegate.swift in Sources */,
@@ -611,11 +720,14 @@
 				55A6644F292C276700981863 /* CoinsListRepository+Parameters.swift in Sources */,
 				55A664AD292F63C300981863 /* CoinDetailRaw+Decodable.swift in Sources */,
 				55A66453292C296700981863 /* CoinsListPrice+Repository.swift in Sources */,
+				55A664B8292F868400981863 /* KeysFields+View.swift in Sources */,
 				55A66441292C109900981863 /* UIFont+CustomFonts.swift in Sources */,
 				55A66405292C097900981863 /* Cryptocompare.xcdatamodeld in Sources */,
 				55A66466292CDFAF00981863 /* CoinsList+UseCase.swift in Sources */,
+				55A664B2292F862200981863 /* SetupView+Constraints.swift in Sources */,
 				55A66443292C10A800981863 /* UIColors+CustomColors.swift in Sources */,
 				55A6646E292CE27400981863 /* Coin+Entity.swift in Sources */,
+				55A664C2292F874C00981863 /* SetupView+ViewModel.swift in Sources */,
 				55A6644B292C226300981863 /* Coins+Decodable.swift in Sources */,
 				55A6649E292EC59900981863 /* CoinDetails+Entity.swift in Sources */,
 				55A66431292C0AA500981863 /* MainCoordinator.swift in Sources */,
@@ -672,6 +784,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		556C7F83292F8EA4005A82A0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				556C7F82292F8EA4005A82A0 /* en */,
+				556C7F84292F8EBC005A82A0 /* ca */,
+				556C7F85292F8ECD005A82A0 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		55A66400292C097900981863 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -695,6 +817,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -755,6 +878,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -816,10 +940,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cryptocompare/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -844,10 +969,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cryptocompare/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -987,6 +1113,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		55A664AE292F85E700981863 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -994,6 +1128,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 55A66432292C0AD700981863 /* XCRemoteSwiftPackageReference "SKRools" */;
 			productName = SKRools;
+		};
+		55A664AF292F85E700981863 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55A664AE292F85E700981863 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 
