@@ -42,30 +42,34 @@ final class DefaultKeychainUseCase: KeychainUseCase {
 private extension DefaultKeychainUseCase {
     private func store(data: Data, key: KeychainConstants) {
         if AntiDebugging.shared.isDebuggerActive() {
-            // TODO: Show an AntiDebug alert
+            logError()
             return
         }
         do {
             try keychain?.save(data, forKey: key.rawValue)
         } catch {
-            // TODO: Error Handling
+            logError()
         }
     }
 
     private func retriveData(key: KeychainConstants) -> Data? {
         if AntiDebugging.shared.isDebuggerActive() {
-            // TODO: Show an AntiDebug alert
+            logError()
             return nil
         }
         do {
             return try keychain?.loadData(withKey: key.rawValue)
         } catch {
-            // TODO: Error Handling
+            logError()
         }
         return nil
     }
 
     private func removeData(keys: [String]) {
        keychain?.delete(items: keys)
+    }
+
+    private func logError() {
+        SKLogger.shared.log(msg: "AntiDebugging Error", group: .system, severity: .error)
     }
 }

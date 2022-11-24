@@ -25,7 +25,7 @@ final class CoinsListUseCaseTest: XCTestCase {
         // create fake parameters
         let parameters = CoinsListUseCaseParameters(total: 20, symbol: .eur)
         // Inject mocked mockup into useCase
-        let useCase: CoinsListUseCase = DefaultCoinsListUseCase(coinsRepository: coinsRepository, priceRepository: priceRepository)
+        let useCase: CoinsListUseCase = DefaultCoinsListUseCase(coinsRepository: coinsRepository, priceRepository: priceRepository, config: configUseCase)
 
         // WHEN
         useCase.execute(parameters: parameters, completion: { result in
@@ -57,10 +57,12 @@ final class CoinsListUseCaseTest: XCTestCase {
         let coinsRepository = CoinsLargeListRepositorySuccessMock()
         // create mocked success repository
         let priceRepository = CoinsLargeListPriceRepositorySuccessMock()
+        // create mocked success config
+        let configUseCase = ConfigUseCaseSuccessMock()
         // create fake parameters
         let parameters = CoinsListUseCaseParameters(total: 20, symbol: .eur)
         // Inject mocked mockup into useCase
-        let useCase: CoinsListUseCase = DefaultCoinsListUseCase(coinsRepository: coinsRepository, priceRepository: priceRepository)
+        let useCase: CoinsListUseCase = DefaultCoinsListUseCase(coinsRepository: coinsRepository, priceRepository: priceRepository, config: configUseCase)
 
         // WHEN
         useCase.execute(parameters: parameters, completion: { result in
@@ -100,10 +102,12 @@ final class CoinsListUseCaseTest: XCTestCase {
         let coinsRepository = CoinsListRepositoryEmptyDataSuccessMock()
         // create mocked success repository
         let priceRepository = CoinsListPriceRepositorySuccessMock()
+        // create mocked success config
+        let configUseCase = ConfigUseCaseSuccessMock()
         // create fake parameters
         let parameters = CoinsListUseCaseParameters(total: 20, symbol: .eur)
         // Inject mocked mockup into useCase
-        let useCase: CoinsListUseCase = DefaultCoinsListUseCase(coinsRepository: coinsRepository, priceRepository: priceRepository)
+        let useCase: CoinsListUseCase = DefaultCoinsListUseCase(coinsRepository: coinsRepository, priceRepository: priceRepository, config: configUseCase)
 
         // WHEN
         useCase.execute(parameters: parameters, completion: { result in
@@ -133,10 +137,12 @@ final class CoinsListUseCaseTest: XCTestCase {
         let coinsRepository = CoinsListRepository403FailureMock()
         // create mocked failure repository
         let priceRepository = CoinsListPriceRepositorySuccessMock()
+        // create mocked success config
+        let configUseCase = ConfigUseCaseSuccessMock()
         // create fake parameters
         let parameters = CoinsListUseCaseParameters(total: 20, symbol: .eur)
         // Inject mocked mockup into useCase
-        let useCase: CoinsListUseCase = DefaultCoinsListUseCase(coinsRepository: coinsRepository, priceRepository: priceRepository)
+        let useCase: CoinsListUseCase = DefaultCoinsListUseCase(coinsRepository: coinsRepository, priceRepository: priceRepository, config: configUseCase)
 
         // WHEN
         useCase.execute(parameters: parameters, completion: { result in
@@ -166,10 +172,12 @@ final class CoinsListUseCaseTest: XCTestCase {
         let coinsRepository = CoinsListRepositoryTimeOutFailureMock()
         // create mocked failure repository
         let priceRepository = CoinsListPriceRepositorySuccessMock()
+        // create mocked success config
+        let configUseCase = ConfigUseCaseSuccessMock()
         // create fake parameters
         let parameters = CoinsListUseCaseParameters(total: 20, symbol: .eur)
         // Inject mocked mockup into useCase
-        let useCase: CoinsListUseCase = DefaultCoinsListUseCase(coinsRepository: coinsRepository, priceRepository: priceRepository)
+        let useCase: CoinsListUseCase = DefaultCoinsListUseCase(coinsRepository: coinsRepository, priceRepository: priceRepository, config: configUseCase)
 
         // WHEN
         useCase.execute(parameters: parameters, completion: { result in
@@ -199,10 +207,12 @@ final class CoinsListUseCaseTest: XCTestCase {
         let coinsRepository = CoinsListRepositoryNoInternetFailureMock()
         // create mocked failure repository
         let priceRepository = CoinsListPriceRepositorySuccessMock()
+        // create mocked success config
+        let configUseCase = ConfigUseCaseSuccessMock()
         // create fake parameters
         let parameters = CoinsListUseCaseParameters(total: 20, symbol: .eur)
         // Inject mocked mockup into useCase
-        let useCase: CoinsListUseCase = DefaultCoinsListUseCase(coinsRepository: coinsRepository, priceRepository: priceRepository)
+        let useCase: CoinsListUseCase = DefaultCoinsListUseCase(coinsRepository: coinsRepository, priceRepository: priceRepository, config: configUseCase)
 
         // WHEN
         useCase.execute(parameters: parameters, completion: { result in
@@ -233,10 +243,12 @@ final class CoinsListUseCaseTest: XCTestCase {
         let coinsRepository = CoinsListRepositorySuccessMock()
         // create mocked success repository
         let priceRepository = CoinsListPriceRepositorySuccessMock()
+        // create mocked success config
+        let configUseCase = ConfigUseCaseSuccessMock()
         // create fake parameters
         let parameters = CoinsListUseCaseParameters(total: 20, symbol: .eur)
         // Inject mocked mockup into useCase
-        let useCase: CoinsListUseCase = DefaultCoinsListUseCase(coinsRepository: coinsRepository, priceRepository: priceRepository)
+        let useCase: CoinsListUseCase = DefaultCoinsListUseCase(coinsRepository: coinsRepository, priceRepository: priceRepository, config: configUseCase)
 
         // WHEN
         useCase.execute(parameters: parameters, completion: { result in
