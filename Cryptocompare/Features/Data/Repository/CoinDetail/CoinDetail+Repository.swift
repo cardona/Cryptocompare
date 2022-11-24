@@ -8,12 +8,9 @@
 import Foundation
 import SKRools
 
-//typealias CoinDetailResultType = [String: [String: [String: CoinDetailDecodable]]]
-typealias CoinDetailResultType = CoinDetailDataDecodable
-
 protocol CoinDetailRepository {
     @discardableResult
-    func request(parameters: CoinDetailRepositoryParameters, completion: @escaping(Result<CoinDetailResultType, DataTransferError>) -> Void) -> Cancellable?
+    func request(parameters: CoinDetailRepositoryParameters, completion: @escaping(Result<CoinDetailDataDecodable, DataTransferError>) -> Void) -> Cancellable?
 }
 
 final class DefaultCoinDetailRepository: CoinDetailRepository {
@@ -23,13 +20,13 @@ final class DefaultCoinDetailRepository: CoinDetailRepository {
         self.dataTransferService = dataTransferService
     }
 
-    static func url() -> Endpoint<CoinDetailResultType> {
+    static func url() -> Endpoint<CoinDetailDataDecodable> {
         return Endpoint(path: "/pricemultifull")
     }
 }
 
 extension DefaultCoinDetailRepository {
-    func request(parameters: CoinDetailRepositoryParameters, completion: @escaping (Result<CoinDetailResultType, DataTransferError>) -> Void) -> Cancellable? {
+    func request(parameters: CoinDetailRepositoryParameters, completion: @escaping (Result<CoinDetailDataDecodable, DataTransferError>) -> Void) -> Cancellable? {
         let url = DefaultCoinDetailRepository.url()
         url.method = .get
 

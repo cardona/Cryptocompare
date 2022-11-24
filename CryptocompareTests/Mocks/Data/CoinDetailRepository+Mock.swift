@@ -12,10 +12,10 @@ import SKRools
 
 extension CoinDetailUseCaseTest {
     final class CoinDetailRepositorySuccessMock: CoinDetailRepository {
-        func request(parameters: Cryptocompare.CoinDetailRepositoryParameters, completion: @escaping (Result<CoinDetailResultType, SKRools.DataTransferError>) -> Void) -> SKRools.Cancellable? {
+        func request(parameters: CoinDetailRepositoryParameters, completion: @escaping (Result<CoinDetailDataDecodable, DataTransferError>) -> Void) -> Cancellable? {
             let decoder = JSONDecoder()
             let json = CoinDetailsJsonMock.makeJsonMock()
-            if let decodable = try? decoder.decode(CoinDetailResultType.self, from: json) {
+            if let decodable = try? decoder.decode(CoinDetailDataDecodable.self, from: json) {
                 completion(.success(decodable))
             } else {
                 XCTFail("Bad Coin Detail JSON Mockup")

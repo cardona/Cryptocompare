@@ -7,23 +7,6 @@
 
 import Foundation
 
-
-
-
-struct CoinDetailDataDecodable: Decodable {
-    var data: [String: [String: CoinDetailDecodable]]?
-
-    // swiftlint:disable:next: function_body_length
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        data = try container.decodeIfPresent([String: [String: CoinDetailDecodable]].self, forKey: .data)
-    }
-
-    private enum CodingKeys: String, CodingKey {
-        case data = "RAW"
-    }
-}
-
 struct CoinDetailDecodable: Decodable {
     var type: String?
     var market: String?

@@ -8,7 +8,6 @@
 import Foundation
 
 struct CoinDetailsEntity {
-    ///
     var openDay: Double?
     ///
     var highDay: Double?
