@@ -44,7 +44,7 @@ extension MainCoordinator {
     }
 
     func pushHomeView() {
-        let home = HomeView()
+        let home = CoinsListView()
         home.coordinator = self
 
         self.navigationController.pushViewController(home, animated: true)

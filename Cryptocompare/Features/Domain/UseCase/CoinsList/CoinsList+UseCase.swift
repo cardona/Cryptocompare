@@ -119,7 +119,7 @@ private extension DefaultCoinsListUseCase {
         }
         let nextCoins = nextCoinsWithoutPrice(number: parameters.total)
         let symbols = nextCoins.compactMap { $0.symbol }
-        let currency = parameters.symbol.rawValue.uppercased()
+        let currency = parameters.outputSymbol.rawValue.uppercased()
 
         let params = CoinsListPriceRepositoryParameters(apiKey: apiKey, fsyms: symbols, tsyms: [currency])
 

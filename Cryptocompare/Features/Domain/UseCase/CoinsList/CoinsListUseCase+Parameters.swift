@@ -18,5 +18,5 @@ struct CoinsListUseCaseParameters {
     /// Max items you want to retrieve.
     var total: Int
     /// output currency
-    var symbol: Symbol
+    var outputSymbol: Symbol
 }
