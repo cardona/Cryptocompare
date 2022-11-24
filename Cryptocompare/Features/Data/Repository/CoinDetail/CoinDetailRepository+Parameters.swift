@@ -11,7 +11,7 @@ struct CoinDetailRepositoryParameters {
     /// The ApiKey for api authorization
     var apiKey: String
     /// Comma separated cryptocurrency symbols list [ Min length - 1] [ Max length - 300]
-    var symbol: [String]?
+    var symbol: [String]
     /// Comma separated cryptocurrency symbols list to convert into [ Min length - 1] [ Max length - 100]
-    var currency: [String]?
+    var currency: [String]
 }

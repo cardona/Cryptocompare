@@ -20,6 +20,8 @@ final class CoinsListUseCaseTest: XCTestCase {
         let coinsRepository = CoinsListRepositorySuccessMock()
         // create mocked success repository
         let priceRepository = CoinsListPriceRepositorySuccessMock()
+        // create mocked success config
+        let configUseCase = ConfigUseCaseSuccessMock()
         // create fake parameters
         let parameters = CoinsListUseCaseParameters(total: 20, symbol: .eur)
         // Inject mocked mockup into useCase

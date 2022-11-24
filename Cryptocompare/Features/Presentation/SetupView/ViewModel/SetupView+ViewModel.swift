@@ -45,6 +45,11 @@ final class DefaultSetupViewModel: SetupViewModel {
     var error: Box<SKError?> = Box(nil)
     var model: Box<SetupModel?> = Box(nil)
     var animations: Box<[String]?> = Box(nil)
+    private var configUseCase: ConfigUseCase?
+
+    init(configUseCase: ConfigUseCase? = DefaultConfigUseCase()) {
+        self.configUseCase = configUseCase
+    }
 
     func viewDidLoad() {
         model.value = prepareModel()
@@ -69,8 +74,7 @@ final class DefaultSetupViewModel: SetupViewModel {
 
     func save(publicKey: String?) {
         if let publicKey = publicKey {
-            // TODO: Save token on keychange
-            SKRoolsConfig.shared.config(apikeyPublic: publicKey)
+            try? configUseCase?.apiKey(text: publicKey)
         }
     }
 }

@@ -20,32 +20,37 @@ protocol CoinDetailUseCase {
 
 final class DefaultCoinDetailUseCase: CoinDetailUseCase {
     private var repository: CoinDetailRepository?
+    private var config: ConfigUseCase?
 
-    init(repository: CoinDetailRepository = DefaultCoinDetailRepository()) {
+    init(repository: CoinDetailRepository = DefaultCoinDetailRepository(), useCase: ConfigUseCase = DefaultConfigUseCase()) {
         self.repository = repository
+        self.config = useCase
     }
 
     func execute(parameters: CoinDetailUseCaseParameters, completion: @escaping (Result<CoinDetailsEntity, SKError>) -> Void) {
-        // TODO: get apiKey from useCase, use a guard to return an error if necessary
-        let apiKey = ""
-        if let symbol = parameters.symbol {
+        if let apiKey = try? config?.apiKey(), let symbol = parameters.symbol {
             let params = CoinDetailRepositoryParameters(apiKey: apiKey, symbol: [symbol], currency: ["EUR"])
-            repository?.request(parameters: params, completion: { result in
-                switch result {
-                case .success(let decodable):
-                    if let raw = decodable.data?[symbol]?["EUR"] as? CoinDetailDecodable {
-                        let entity = CoinDetailsEntity(decodable: raw)
-                        completion(.success(entity))
-                    } else {
-                        completion(.failure(.emptyData))
-                    }
 
-                case .failure(let error):
-                    completion(.failure(error.skError))
-                }
-            })
+            coinsDetails(symbol: symbol, parameters: params, completion: completion)
         } else {
             completion(.failure(.badRequest))
         }
+    }
+
+    func coinsDetails(symbol: String, parameters: CoinDetailRepositoryParameters, completion: @escaping (Result<CoinDetailsEntity, SKError>) -> Void) {
+        repository?.request(parameters: parameters, completion: { result in
+            switch result {
+            case .success(let decodable):
+                if let raw = decodable.data?[symbol]?["EUR"] as? CoinDetailDecodable {
+                    let entity = CoinDetailsEntity(decodable: raw)
+                    completion(.success(entity))
+                } else {
+                    completion(.failure(.emptyData))
+                }
+
+            case .failure(let error):
+                completion(.failure(error.skError))
+            }
+        })
     }
 }

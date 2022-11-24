@@ -30,8 +30,8 @@ extension DefaultCoinDetailRepository {
         let url = DefaultCoinDetailRepository.url()
         url.method = .get
 
-        let symbols = parameters.symbol?.joined(separator: ",")
-        let currency = parameters.currency?.joined(separator: ",")
+        let symbols = parameters.symbol.joined(separator: ",")
+        let currency = parameters.currency.joined(separator: ",")
         var param: [String: Any] = [:]
         param["fsyms"] = symbols
         param["tsyms"] = currency
