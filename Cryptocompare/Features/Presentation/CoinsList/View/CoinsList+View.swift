@@ -89,22 +89,16 @@ extension CoinsListView {
 // MARK: - Spinner
 extension CoinsListView {
     private func loadingSpinner(status: LoadingStatus) {
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(showEmptyState), object: nil)
         switch status {
         case .start:
-            // TODO: Look for a best way to do this 
-            perform(#selector(showEmptyState), with: self, afterDelay: 0.3)
+            DispatchQueue.main.async {
+                self.itemsList.showEmptyState()
+                self.spinnerView.isHidden = false
+            }
         case .stop:
             DispatchQueue.main.async {
                 self.spinnerView.isHidden = true
             }
-        }
-    }
-
-    @objc private func showEmptyState() {
-        DispatchQueue.main.async {
-            self.itemsList.showEmptyState()
-            self.spinnerView.isHidden = false
         }
     }
 }
