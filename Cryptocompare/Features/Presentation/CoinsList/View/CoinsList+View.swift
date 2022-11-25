@@ -14,7 +14,7 @@ final class CoinsListView: UIViewController {
     private var viewModel: CoinsListViewModel = DefaultCoinsListViewModel()
 
     private (set) var itemsList: ItemsListView = {
-       let list = DefaultItemsListView()
+        let list = DefaultItemsListView()
         list.translatesAutoresizingMaskIntoConstraints = false
 
         return list
@@ -44,6 +44,7 @@ extension CoinsListView {
         view.addSubview(itemsList)
         itemsListConstraints()
         itemsList.delegate = self
+        itemsList.showEmptyState()
 
         view.addSubview(spinnerView)
         spinnerViewConstraints()
@@ -55,32 +56,12 @@ extension CoinsListView {
     private func setupBinding() {
         viewModel.loadingStatus.bind { [weak self] status in
             guard let self = self else {  return }
-            switch status {
-            case .start:
-                DispatchQueue.main.async {
-                    self.itemsList.showEmptyState()
-                    self.spinnerView.isHidden = false
-                }
-            case .stop:
-                DispatchQueue.main.async {
-                   self.spinnerView.isHidden = true
-                }
-            }
+            self.loadingSpinner(status: status)
         }
 
         viewModel.error.bind { [weak self] error in
             guard let error = error else { return }
-            SKLogger.shared.log(error: error, endpoint: nil, data: nil, group: .filesystem)
-            switch error {
-            case .emptyList:
-                DispatchQueue.main.async {
-                    self?.itemsList.showEmptyState()
-                }
-            case .accessDenied:
-                self?.coordinator?.showAlert(message: ("Change your keys"))
-            default:
-                self?.showAlert(error: error)
-            }
+            self?.errorHandling(error: error)
         }
 
         viewModel.itemsListModel.bind { [weak self] model in
@@ -94,8 +75,53 @@ extension CoinsListView {
 
 // MARK: - User Actions
 extension CoinsListView {
+    /// The user wants to see more details of a specific coin
     private func itemsListSelected(item: ItemsListModel?, at indexPath: IndexPath) {
         SKLogger.shared.log(msg: "Selected: \(item?.title ?? "")", group: .debug, severity: .info)
+    }
+
+    /// The user reaches the end of the coins list and needs more data
+    private func coinsListHitBottom() {
+        viewModel.moreCoins()
+    }
+}
+
+// MARK: - Spinner
+extension CoinsListView {
+    private func loadingSpinner(status: LoadingStatus) {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(showEmptyState), object: nil)
+        switch status {
+        case .start:
+            // TODO: Look for a best way to do this 
+            perform(#selector(showEmptyState), with: self, afterDelay: 0.3)
+        case .stop:
+            DispatchQueue.main.async {
+                self.spinnerView.isHidden = true
+            }
+        }
+    }
+
+    @objc private func showEmptyState() {
+        DispatchQueue.main.async {
+            self.itemsList.showEmptyState()
+            self.spinnerView.isHidden = false
+        }
+    }
+}
+
+// MARK: - Error Handling
+extension CoinsListView {
+    private func errorHandling(error: SKError) {
+        switch error {
+        case .emptyList:
+            DispatchQueue.main.async {
+                self.itemsList.showEmptyState()
+            }
+        case .accessDenied:
+            coordinator?.showAlert(message: ("Change your keys"))
+        default:
+            showAlert(error: error)
+        }
     }
 }
 
@@ -117,6 +143,10 @@ extension CoinsListView {
 
 // MARK: - ItemsList
 extension CoinsListView: ItemsListViewProtocol {
+    func hitBottom() {
+        coinsListHitBottom()
+    }
+
     func selected(item: ItemsListModel?, at indexPath: IndexPath) {
         itemsListSelected(item: item, at: indexPath)
     }

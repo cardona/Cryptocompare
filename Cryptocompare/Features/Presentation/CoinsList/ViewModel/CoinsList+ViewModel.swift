@@ -24,6 +24,7 @@ protocol CoinsListViewModelInput {
     /// This method is called when the view is loaded but not presented
     func viewDidLoad()
     func coinDetail(symbol: String)
+    func moreCoins()
 }
 
 // MARK: - CoinsListViewModelOutput Protocol
@@ -47,6 +48,7 @@ final class DefaultCoinsListViewModel: CoinsListViewModel {
     var itemsListModel: Box<CoinsListModel?> = Box(nil)
     private var useCase: CoinsListUseCase?
     private var config: ConfigUseCase?
+    private let params = CoinsListUseCaseParameters(total: 20, outputSymbol: .eur)
 
     init (useCase: CoinsListUseCase = DefaultCoinsListUseCase(),
           config: ConfigUseCase = DefaultConfigUseCase()) {
@@ -55,8 +57,15 @@ final class DefaultCoinsListViewModel: CoinsListViewModel {
     }
 
     func viewDidLoad() {
+        moreCoins()
+    }
+
+    func moreCoins() {
         loadingStatus.value = .start
-        let params = CoinsListUseCaseParameters(total: 20, outputSymbol: .eur)
+        coinsList()
+    }
+
+    private func coinsList() {
         useCase?.execute(parameters: params, completion: { [weak self] result in
             switch result {
             case .success(let entity):

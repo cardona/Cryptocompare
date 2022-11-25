@@ -11,7 +11,6 @@ import SKRools
 private enum KeychainConstants: String, CaseIterable {
     case tokenKey = "tokenkey.tv.cardona.crypto"
     case baseURL = "baseurl.tv.cardona.crypto"
-
 }
 
 protocol KeychainUseCase {
@@ -44,7 +43,7 @@ final class DefaultKeychainUseCase: KeychainUseCase {
     func baseURL() -> Data? {
         return retriveData(key: KeychainConstants.baseURL)
     }
-    
+
     func deleteAllStoredObjects() {
         let allItems: [String] = KeychainConstants.allCases.map { $0.rawValue }
         keychain?.delete(items: allItems)

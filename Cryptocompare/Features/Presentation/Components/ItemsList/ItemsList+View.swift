@@ -86,8 +86,10 @@ final class DefaultItemsListView: UIView, ItemsListView {
         collectionView.reloadData()    }
 
     func showEmptyState() {
-        itemsListModel = [ItemsListModel(isEmptyStateCell: true)]
-        collectionView.reloadData()
+        if itemsListModel?.count == nil {
+            itemsListModel = [ItemsListModel(isEmptyStateCell: true)]
+            collectionView.reloadData()
+        }
     }
 }
 
@@ -97,6 +99,11 @@ extension DefaultItemsListView: UICollectionViewDelegate {
         if let item = itemsListModel?[indexPath.row] {
             delegate?.selected(item: item, at: indexPath)
         }
+    }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+         if let itemCount = itemsListModel?.count, (indexPath.row == itemCount - 1 ), collectionView.numberOfItems(inSection: 0) > 1 {
+             delegate?.hitBottom()
+         }
     }
 }
 

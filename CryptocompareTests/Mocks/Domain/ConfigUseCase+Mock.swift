@@ -12,6 +12,18 @@ import SKRools
 @testable import Cryptocompare
 
 final class ConfigUseCaseSuccessMock: ConfigUseCase {
+    func setupSecureEnclave() {
+        // Nothing to do
+    }
+
+    func baseURL() throws -> String {
+        return "FAKE"
+    }
+
+    func baseURL(text: String) throws {
+        // Nothing to do
+    }
+
     func apiKey() throws -> String {
         return "FAKE"
     }

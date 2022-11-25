@@ -17,11 +17,3 @@ struct CoinsListModel {
     /// Total coins with prices
     var cached: String
 }
-//
-//struct CoinModel {
-//    var identifier: String
-//    var name: String
-//    var logo: URL
-//    var symbol: String
-//    var price: String
-//}
