@@ -74,7 +74,10 @@ final class DefaultSetupViewModel: SetupViewModel {
 
     func save(publicKey: String?) {
         if let publicKey = publicKey {
+            configUseCase?.setupSecureEnclave()
+            try? configUseCase?.baseURL(text: APPConfig.baseUel)
             try? configUseCase?.apiKey(text: publicKey)
+            SKRoolsConfig.shared.config(url: APPConfig.baseUel)
         }
     }
 }

@@ -10,8 +10,11 @@ import SKRools
 
 // MARK: ConfigUseCase
 protocol ConfigUseCase {
+    func setupSecureEnclave()
     func apiKey() throws -> String
     func apiKey(text: String) throws
+    func baseURL() throws -> String
+    func baseURL(text: String) throws
 }
 
 // MARK: - Init
@@ -65,5 +68,26 @@ extension DefaultConfigUseCase {
             throw KeychainError.storeData(msg: "apiKey")
         }
         keychain?.apiKey(data: encrypted)
+    }
+
+    func baseURL() throws -> String {
+        guard
+            let key = try crypto?.symmetricKey(),
+            let data = keychain?.baseURL(),
+            let text = try? crypto?.decrypt(data: data, key: key) as? String
+        else {
+            throw KeychainError.retrievingSavedData(msg: "baseURL")
+        }
+        return text
+    }
+
+    func baseURL(text: String) throws {
+        guard
+            let key = try crypto?.symmetricKey(),
+            let encrypted = try crypto?.encrypt(text: text, key: key)
+        else {
+            throw KeychainError.storeData(msg: "baseURL")
+        }
+        keychain?.baseURL(data: encrypted)
     }
 }

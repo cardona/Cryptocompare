@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Foundation
 import SKRools
 
 protocol CoinsListViewModel: CoinsListViewModelInput, CoinsListViewModelOutput {}
@@ -47,9 +46,12 @@ final class DefaultCoinsListViewModel: CoinsListViewModel {
     var error: Box<SKError?> = Box(nil)
     var itemsListModel: Box<CoinsListModel?> = Box(nil)
     private var useCase: CoinsListUseCase?
+    private var config: ConfigUseCase?
 
-    init (useCase: CoinsListUseCase = DefaultCoinsListUseCase()) {
+    init (useCase: CoinsListUseCase = DefaultCoinsListUseCase(),
+          config: ConfigUseCase = DefaultConfigUseCase()) {
         self.useCase = useCase
+        self.config = config
     }
 
     func viewDidLoad() {
@@ -58,41 +60,67 @@ final class DefaultCoinsListViewModel: CoinsListViewModel {
         useCase?.execute(parameters: params, completion: { [weak self] result in
             switch result {
             case .success(let entity):
-//                let items = entity.compactMap { item in
-//                    if let identifier = item.identifier,
-//                       let name = item.fullName,
-//                       let imageUrl = item.imageUrl,
-//                       let url = URL(string: imageUrl),
-//                       let symbol = item.symbol,
-//                       let price = item.price,
-//                       price > 0.000001 {
-//                        return CoinModel(identifier: identifier, name: name, logo: url, symbol: symbol, price: String(price))
-//                    }
-//                    return nil
-//                }
-                //TODO: Move to func
-                let items = entity.compactMap { item in
-                    if let identifier = item.identifier,
-                       let name = item.fullName,
-                       let imageUrl = item.imageUrl,
-                       let url = URL(string: imageUrl),
-                       let symbol = item.symbol,
-                       let price = item.price {
-                        // TODO: Remove symbol from name
-                        return ItemsListModel(identifier: identifier, title: name, subtitle: symbol, imageUrl: url, bottomRightText: String(price))
-                    }
-                    return nil
+                let model = self?.makeModel(entity: entity)
+                if model?.coins.isEmpty ?? true {
+                    self?.error.value = .emptyData
+                } else {
+                    self?.itemsListModel.value = model
                 }
-                let model = CoinsListModel(coins: items, total: "1000", buffer: "980", cached: "20")
-                self?.itemsListModel.value = model
-
             case .failure(let error):
                 self?.error.value = error
             }
             self?.loadingStatus.value = .stop
         })
     }
+}
 
+// MARK: - Coins Detail
+extension DefaultCoinsListViewModel {
     // TODO: Implement coin detail
     func coinDetail(symbol: String) { }
+}
+
+// MARK: - Make Model
+extension DefaultCoinsListViewModel {
+    private func makeModel(entity: [CoinEntity]) -> CoinsListModel? {
+        /// Create model and remove residual coins and nil objectes
+        let items = entity.compactMap { return formatText(coin: $0) }
+
+        return CoinsListModel(coins: items, total: "1000", buffer: "980", cached: "20")
+    }
+
+    /// Prepare model to send it to view
+    private func formatText(coin: CoinEntity) -> ItemsListModel? {
+        guard
+            let identifier = coin.identifier,
+            var name = coin.fullName,
+            let imageUrl = coin.imageUrl,
+            let symbol = coin.symbol,
+            let price = coin.price
+        else {
+            return nil
+        }
+        /// Create image URL
+        guard let url = URL(string: Constants.imageBaseUrl + imageUrl) else { return nil }
+
+        /// Round price to 6 decimals
+        let roundedPrice = price.rounded(toPlaces: 6)
+
+        /// Remove residual coins
+        guard roundedPrice > 0.000_000_000_1 else { return nil }
+        let formatPrice = String(roundedPrice) + " €"
+
+        /// Remove Duplicated Symbol on fullName
+        if let dotRange = name.range(of: "(") {
+            name.removeSubrange(dotRange.lowerBound..<name.endIndex)
+        }
+
+        return ItemsListModel(identifier: identifier, title: name, subtitle: symbol, imageUrl: url, bottomRightText: formatPrice)
+    }
+}
+
+extension DefaultCoinsListViewModel {
+    private enum Constants {
+        static let imageBaseUrl = "https://www.cryptocompare.com"
+    }
 }
