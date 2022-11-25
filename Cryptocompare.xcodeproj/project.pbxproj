@@ -367,7 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				55A664B3292F864000981863 /* Components */,
-				55A66439292C0BC700981863 /* CoinsList */,
+				55A66439292C0BC700981863 /* CoinsListView */,
 				55A66438292C0BBF00981863 /* SetupView */,
 				55A66430292C0AA500981863 /* MainCoordinator.swift */,
 			);
@@ -396,14 +396,14 @@
 			path = SetupView;
 			sourceTree = "<group>";
 		};
-		55A66439292C0BC700981863 /* CoinsList */ = {
+		55A66439292C0BC700981863 /* CoinsListView */ = {
 			isa = PBXGroup;
 			children = (
 				556C7F9129300393005A82A0 /* Model */,
 				55A6643D292C0F4000981863 /* View */,
 				556C7F9229300398005A82A0 /* ViewModel */,
 			);
-			path = CoinsList;
+			path = CoinsListView;
 			sourceTree = "<group>";
 		};
 		55A6643A292C0F2000981863 /* View */ = {

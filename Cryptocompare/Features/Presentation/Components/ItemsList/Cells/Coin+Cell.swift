@@ -26,6 +26,7 @@ final class CoinCell: UICollectionViewCell {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .white
+        image.image = UIImage(named: Resources.defaultImage)
 
         return image
     }()
