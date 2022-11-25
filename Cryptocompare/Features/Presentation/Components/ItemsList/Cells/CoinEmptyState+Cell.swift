@@ -106,7 +106,7 @@ extension CoinEmptyStateCell {
 
     func titleConstraints() {
         NSLayoutConstraint.activate([
-            title.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 20),
+            title.bottomAnchor.constraint(equalTo: imageViewLeft.bottomAnchor, constant: 20),
             title.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
             title.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
             title.heightAnchor.constraint(greaterThanOrEqualToConstant: 21)
