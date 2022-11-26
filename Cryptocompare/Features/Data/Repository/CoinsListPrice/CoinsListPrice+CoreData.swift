@@ -12,6 +12,7 @@ import SKRools
 protocol CoinsListPriceCoreData {
     func save(entity: [CoinEntity])
     func load(symbols: [String]) -> [CoinEntity]?
+    func stats()
 }
 
 final class DefaultCoinsListPriceCoreData: CoinsListPriceCoreData {
@@ -27,7 +28,7 @@ final class DefaultCoinsListPriceCoreData: CoinsListPriceCoreData {
                     coin.symbol = item.symbol
                     coin.fullName = item.fullName
                     coin.imageUrl = item.imageUrl
-                    print("STORED: \(coin.symbol)")
+
                     try? privateContext.save()
                 }
             }
@@ -57,5 +58,13 @@ final class DefaultCoinsListPriceCoreData: CoinsListPriceCoreData {
 
             return entity
         }
+    }
+
+    func stats() {
+        let context = PersistentDataBaseContext.shared.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<CoinPriceCoreData>(entityName: "CoinPriceCoreData")
+
+        let data = try? context.fetch(fetchRequest)
+        SKLogger.shared.log(msg: "Coins with price: \(data?.count ?? 0)", group: .database, severity: .info)
     }
 }

@@ -38,6 +38,7 @@ final class DefaultCoinsListCoreData: CoinsListCoreData {
 
         let data = try? context.fetch(fetchRequest)
         let entity = data?.map { CoinEntity(coreData: $0) }
+        SKLogger.shared.log(msg: "Coins without price: \(entity?.count ?? 0)", group: .database, severity: .info)
 
         return entity
     }

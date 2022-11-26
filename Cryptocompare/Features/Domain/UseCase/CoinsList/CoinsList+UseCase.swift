@@ -109,7 +109,6 @@ private extension DefaultCoinsListUseCase {
             }
             noPriceCoins = currentBuffer.sorted()
             if let coinsList = noPriceCoins {
-                print("count: \(coinsList.count)")
                 coinCoreData?.save(entity: coinsList)
             }
             completion(nil)
@@ -205,6 +204,7 @@ private extension DefaultCoinsListUseCase {
         currentCoins?.append(contentsOf: coins.sorted())
         if let currentCoins = currentCoins, !coins.isEmpty {
             priceCoreData?.save(entity: coins)
+            priceCoreData?.stats()
             completion(.success(currentCoins))
         } else {
             completion(.failure(SKError.emptyData))
