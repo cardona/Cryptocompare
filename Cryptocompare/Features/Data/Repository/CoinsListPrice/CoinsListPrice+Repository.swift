@@ -21,7 +21,7 @@ final class DefaultCoinsListPriceRepository: CoinsListPriceRepository {
     }
 
     static func url() -> Endpoint<[String: CoinsListPriceDecodable]> {
-        return Endpoint(path: "/pricemulti")
+        return Endpoint(path: "pricemulti")
     }
 }
 
@@ -35,6 +35,9 @@ extension DefaultCoinsListPriceRepository {
         var param: [String: Any] = [:]
         param["fsyms"] = symbols
         param["tsyms"] = currency
+
+        url.queryParameters = param
+        url.headerParamaters = ["authorization": "Apikey \(parameters.apiKey)"]
 
         let networkTask = self.dataTransferService.request(with: url, completion: completion)
 

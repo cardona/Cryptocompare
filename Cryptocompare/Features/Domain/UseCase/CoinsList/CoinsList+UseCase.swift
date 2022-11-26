@@ -25,13 +25,16 @@ protocol CoinsListUseCase {
 final class DefaultCoinsListUseCase: CoinsListUseCase {
     private var coinsRepository: CoinsListRepository?
     private var priceRepository: CoinsListPriceRepository?
+    private var config: ConfigUseCase?
     private var noPriceCoins: [CoinEntity]?
     private var currentCoins: [CoinEntity]? = []
 
     init(coinsRepository: CoinsListRepository = DefaultCoinsListRepository(),
-         priceRepository: CoinsListPriceRepository = DefaultCoinsListPriceRepository()) {
+         priceRepository: CoinsListPriceRepository = DefaultCoinsListPriceRepository(),
+         config: ConfigUseCase = DefaultConfigUseCase()) {
         self.coinsRepository = coinsRepository
         self.priceRepository = priceRepository
+        self.config = config
     }
 
     func execute(parameters: CoinsListUseCaseParameters, completion: @escaping CompletionBlock) {
@@ -64,7 +67,11 @@ private extension DefaultCoinsListUseCase {
     ///
     /// - Returns: An error if the service fails or nil if everything ends well
     private func retrieveCoinsList(completion: @escaping (SKError?) -> Void) {
-        let params = CoinsListRepositoryParameters(summary: true)
+        guard let apiKey = try? config?.apiKey() else {
+            completion(.badRequest)
+            return
+        }
+        let params = CoinsListRepositoryParameters(apiKey: apiKey, summary: true)
         coinsRepository?.request(parameters: params, completion: { [weak self] result in
             switch result {
             case .success(let decodable):
@@ -106,10 +113,15 @@ private extension DefaultCoinsListUseCase {
     ///
     /// - Returns: An array with the list of coins or an error if something goes wrong
     private func retrieveCoinPrice(parameters: CoinsListUseCaseParameters, completion: @escaping CompletionBlock) {
+        guard let apiKey = try? config?.apiKey() else {
+            completion(.failure(.badRequest))
+            return
+        }
         let nextCoins = nextCoinsWithoutPrice(number: parameters.total)
         let symbols = nextCoins.compactMap { $0.symbol }
-        let currency = parameters.symbol.rawValue.uppercased()
-        let params = CoinsListPriceRepositoryParameters(fsyms: symbols, tsyms: [currency])
+        let currency = parameters.outputSymbol.rawValue.uppercased()
+
+        let params = CoinsListPriceRepositoryParameters(apiKey: apiKey, fsyms: symbols, tsyms: [currency])
 
         priceRepository?.request(parameters: params, completion: { [weak self] result in
             switch result {
