@@ -13,4 +13,8 @@
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="symbol" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="ImageCache" representedClassName="ImageCache" syncable="YES" codeGenerationType="class">
+        <attribute name="data" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String"/>
+    </entity>
 </model>

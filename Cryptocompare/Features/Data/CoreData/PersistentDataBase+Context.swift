@@ -56,7 +56,9 @@ public final class PersistentDataBaseContext {
         let storeContainer = persistentContainer.persistentStoreCoordinator
         for store in storeContainer.persistentStores {
             if let url = store.url {
-                try? storeContainer.destroyPersistentStore(at: url, ofType: store.type, options: nil)
+                do {
+                    try? storeContainer.destroyPersistentStore(at: url, ofType: store.type, options: nil)
+                }
             }
         }
 

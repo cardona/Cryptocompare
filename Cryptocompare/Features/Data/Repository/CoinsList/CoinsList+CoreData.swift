@@ -25,8 +25,9 @@ final class DefaultCoinsListCoreData: CoinsListCoreData {
                     coin.symbol = item.symbol
                     coin.fullName = item.fullName
                     coin.imageUrl = item.imageUrl
-
-                    try? privateContext.save()
+                    do {
+                        try? privateContext.save()
+                    }
                 }
             }
         }
@@ -35,12 +36,13 @@ final class DefaultCoinsListCoreData: CoinsListCoreData {
     func load() -> [CoinEntity]? {
         let context = PersistentDataBaseContext.shared.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<CoinCoreData>(entityName: "CoinCoreData")
+        do {
+            let data = try? context.fetch(fetchRequest)
+            let entity = data?.map { CoinEntity(coreData: $0) }
+            SKLogger.shared.log(msg: "Coins without price: \(entity?.count ?? 0)", group: .database, severity: .info)
 
-        let data = try? context.fetch(fetchRequest)
-        let entity = data?.map { CoinEntity(coreData: $0) }
-        SKLogger.shared.log(msg: "Coins without price: \(entity?.count ?? 0)", group: .database, severity: .info)
-
-        return entity
+            return entity
+        }
     }
 
     func delete(delete entity: [CoinEntity]) {
@@ -61,12 +63,11 @@ final class DefaultCoinsListCoreData: CoinsListCoreData {
             if !predicates.isEmpty {
                 let predicateCompound = NSCompoundPredicate(type: .or, subpredicates: predicates)
                 fetchRequest.predicate = predicateCompound
-
-                if let data = try? context.fetch(fetchRequest) {
-                    for obj in data {
-                        context.delete(obj)
-                    }
-                    do {
+                do {
+                    if let data = try? context.fetch(fetchRequest) {
+                        for obj in data {
+                            context.delete(obj)
+                        }
                         try? context.save()
                     }
                 }
