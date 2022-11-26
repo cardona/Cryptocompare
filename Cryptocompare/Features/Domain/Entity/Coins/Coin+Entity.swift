@@ -26,6 +26,21 @@ struct CoinEntity: Comparable {
         self.fullName = decodable.fullName
     }
 
+    init(coreData: CoinCoreData?) {
+        self.identifier = coreData?.identifier
+        self.imageUrl = coreData?.imageUrl
+        self.symbol = coreData?.symbol
+        self.fullName = coreData?.fullName
+    }
+
+    init(coreData: CoinPriceCoreData?) {
+        self.identifier = coreData?.identifier
+        self.imageUrl = coreData?.imageUrl
+        self.symbol = coreData?.symbol
+        self.fullName = coreData?.fullName
+        self.price = coreData?.price
+    }
+
     static func < (lhs: CoinEntity, rhs: CoinEntity) -> Bool {
         return lhs.fullName ?? "" < rhs.fullName ?? ""
     }

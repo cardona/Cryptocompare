@@ -39,6 +39,9 @@
 		556C7FD929321D3B005A82A0 /* CoinDetailsList+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C7FD829321D3B005A82A0 /* CoinDetailsList+View.swift */; };
 		556C7FDD29321D5B005A82A0 /* CoinDetailsList+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C7FDC29321D5B005A82A0 /* CoinDetailsList+Model.swift */; };
 		556C7FE129322A9A005A82A0 /* CoinDetailList+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C7FE029322A9A005A82A0 /* CoinDetailList+Item.swift */; };
+		556C7FE429324FCE005A82A0 /* CoinsList+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C7FE329324FCE005A82A0 /* CoinsList+CoreData.swift */; };
+		556C7FE729325097005A82A0 /* PersistentDataBase+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C7FE629325097005A82A0 /* PersistentDataBase+Context.swift */; };
+		556C7FE929327A5A005A82A0 /* CoinsListPrice+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556C7FE829327A5A005A82A0 /* CoinsListPrice+CoreData.swift */; };
 		55A663FB292C097900981863 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A663FA292C097900981863 /* AppDelegate.swift */; };
 		55A66402292C097900981863 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55A66400292C097900981863 /* Main.storyboard */; };
 		55A66405292C097900981863 /* Cryptocompare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55A66403292C097900981863 /* Cryptocompare.xcdatamodeld */; };
@@ -144,6 +147,10 @@
 		556C7FD829321D3B005A82A0 /* CoinDetailsList+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetailsList+View.swift"; sourceTree = "<group>"; };
 		556C7FDC29321D5B005A82A0 /* CoinDetailsList+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetailsList+Model.swift"; sourceTree = "<group>"; };
 		556C7FE029322A9A005A82A0 /* CoinDetailList+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetailList+Item.swift"; sourceTree = "<group>"; };
+		556C7FE329324FCE005A82A0 /* CoinsList+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsList+CoreData.swift"; sourceTree = "<group>"; };
+		556C7FE629325097005A82A0 /* PersistentDataBase+Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentDataBase+Context.swift"; sourceTree = "<group>"; };
+		556C7FE829327A5A005A82A0 /* CoinsListPrice+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListPrice+CoreData.swift"; sourceTree = "<group>"; };
+		556C7FEB2932AEE9005A82A0 /* SKRools */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SKRools; path = ../SKRools; sourceTree = "<group>"; };
 		55A663F7292C097900981863 /* Cryptocompare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryptocompare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A663FA292C097900981863 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55A66401292C097900981863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -356,9 +363,18 @@
 			path = Item;
 			sourceTree = "<group>";
 		};
+		556C7FE529325079005A82A0 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				556C7FE629325097005A82A0 /* PersistentDataBase+Context.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		55A663EE292C097900981863 = {
 			isa = PBXGroup;
 			children = (
+				556C7FEB2932AEE9005A82A0 /* SKRools */,
 				55A663F9292C097900981863 /* Cryptocompare */,
 				55A66413292C097A00981863 /* CryptocompareTests */,
 				55A6641D292C097A00981863 /* CryptocompareUITests */,
@@ -495,6 +511,7 @@
 		55A66445292C222C00981863 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				556C7FE529325079005A82A0 /* CoreData */,
 				55A66447292C223B00981863 /* Repository */,
 				55A66446292C223300981863 /* Decodables */,
 			);
@@ -526,6 +543,7 @@
 			children = (
 				55A66450292C277300981863 /* CoinsList+Repository.swift */,
 				55A6644E292C276700981863 /* CoinsListRepository+Parameters.swift */,
+				556C7FE329324FCE005A82A0 /* CoinsList+CoreData.swift */,
 			);
 			path = CoinsList;
 			sourceTree = "<group>";
@@ -535,6 +553,7 @@
 			children = (
 				55A66452292C296700981863 /* CoinsListPrice+Repository.swift */,
 				55A66456292C29A000981863 /* CointsListPriceRepository+Parameters.swift */,
+				556C7FE829327A5A005A82A0 /* CoinsListPrice+CoreData.swift */,
 			);
 			path = CoinsListPrice;
 			sourceTree = "<group>";
@@ -879,6 +898,7 @@
 				55A6644D292C24B200981863 /* CoinsList+Decodable.swift in Sources */,
 				55A664C0292F873D00981863 /* SetupView+Model.swift in Sources */,
 				556C7FB129300C72005A82A0 /* DownloadImage+Repository.swift in Sources */,
+				556C7FE429324FCE005A82A0 /* CoinsList+CoreData.swift in Sources */,
 				556C7F8A292FE5FB005A82A0 /* Keychain+UseCase.swift in Sources */,
 				556C7F88292FE5BC005A82A0 /* Config+UseCase.swift in Sources */,
 				556C7FD929321D3B005A82A0 /* CoinDetailsList+View.swift in Sources */,
@@ -906,6 +926,7 @@
 				55A66405292C097900981863 /* Cryptocompare.xcdatamodeld in Sources */,
 				55A66466292CDFAF00981863 /* CoinsList+UseCase.swift in Sources */,
 				55A664B2292F862200981863 /* SetupView+Constraints.swift in Sources */,
+				556C7FE929327A5A005A82A0 /* CoinsListPrice+CoreData.swift in Sources */,
 				55A66443292C10A800981863 /* UIColors+CustomColors.swift in Sources */,
 				55A6646E292CE27400981863 /* Coin+Entity.swift in Sources */,
 				55A664C2292F874C00981863 /* SetupView+ViewModel.swift in Sources */,
@@ -913,6 +934,7 @@
 				556C7FD129316031005A82A0 /* CoinDetail+View.swift in Sources */,
 				55A6649E292EC59900981863 /* CoinDetails+Entity.swift in Sources */,
 				556C7FAE29300C38005A82A0 /* UICollectionViewCell+DownloadImage.swift in Sources */,
+				556C7FE729325097005A82A0 /* PersistentDataBase+Context.swift in Sources */,
 				556C7FE129322A9A005A82A0 /* CoinDetailList+Item.swift in Sources */,
 				556C7FA629300A6E005A82A0 /* ItemListView+Protocol.swift in Sources */,
 				556C7FB7293025FF005A82A0 /* CoinsList+Model.swift in Sources */,
