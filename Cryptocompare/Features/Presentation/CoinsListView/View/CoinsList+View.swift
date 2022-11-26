@@ -31,7 +31,6 @@ final class CoinsListView: UIViewController {
         super.viewDidLoad()
         setupView()
         setupBinding()
-
         viewModel.viewDidLoad()
     }
 }
@@ -48,6 +47,8 @@ extension CoinsListView {
 
         view.addSubview(spinnerView)
         spinnerViewConstraints()
+        self.navigationItem.setHidesBackButton(true, animated: true)
+        self.title = "Coins List"
     }
 }
 
@@ -77,12 +78,14 @@ extension CoinsListView {
 extension CoinsListView {
     /// The user wants to see more details of a specific coin
     private func itemsListSelected(item: ItemsListModel?, at indexPath: IndexPath) {
-        SKLogger.shared.log(msg: "Selected: \(item?.title ?? "")", group: .debug, severity: .info)
+        if let symbol = item?.identifier {
+            coordinator?.pushCoinDetailView(symbol: symbol)
+        }
     }
 
     /// The user reaches the end of the coins list and needs more data
     private func coinsListHitBottom() {
-        viewModel.moreCoins()
+        viewModel.coinsList()
     }
 }
 

@@ -23,8 +23,7 @@ protocol CoinsListViewModel: CoinsListViewModelInput, CoinsListViewModelOutput {
 protocol CoinsListViewModelInput {
     /// This method is called when the view is loaded but not presented
     func viewDidLoad()
-    func coinDetail(symbol: String)
-    func moreCoins()
+    func coinsList()
 }
 
 // MARK: - CoinsListViewModelOutput Protocol
@@ -57,15 +56,11 @@ final class DefaultCoinsListViewModel: CoinsListViewModel {
     }
 
     func viewDidLoad() {
-        moreCoins()
-    }
-
-    func moreCoins() {
-        loadingStatus.value = .start
         coinsList()
     }
 
-    private func coinsList() {
+    func coinsList() {
+        loadingStatus.value = .start
         useCase?.execute(parameters: params, completion: { [weak self] result in
             switch result {
             case .success(let entity):
@@ -83,12 +78,6 @@ final class DefaultCoinsListViewModel: CoinsListViewModel {
     }
 }
 
-// MARK: - Coins Detail
-extension DefaultCoinsListViewModel {
-    // TODO: Implement coin detail
-    func coinDetail(symbol: String) { }
-}
-
 // MARK: - Make Model
 extension DefaultCoinsListViewModel {
     private func makeModel(entity: [CoinEntity]) -> CoinsListModel? {
@@ -101,7 +90,7 @@ extension DefaultCoinsListViewModel {
     /// Prepare model to send it to view
     private func formatText(coin: CoinEntity) -> ItemsListModel? {
         guard
-            let identifier = coin.identifier,
+            let identifier = coin.symbol,
             var name = coin.fullName,
             let imageUrl = coin.imageUrl,
             let symbol = coin.symbol,

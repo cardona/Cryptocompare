@@ -16,8 +16,26 @@ final class CoinDetailView: UIViewController {
     private (set) var titleLbl: UILabel = {
         let item = UILabel()
         item.translatesAutoresizingMaskIntoConstraints = false
-        item.font = .skTitle
+        item.font = .skBigTitle
         item.textColor = .black
+        item.textAlignment = .center
+
+        return item
+    }()
+
+    private (set) var coinDetailsList: CoinDetailListView = {
+        let item = DefaultCoinDetailListView()
+        item.translatesAutoresizingMaskIntoConstraints = false
+
+        return item
+    }()
+
+    private (set) var price: UILabel = {
+        let item = UILabel()
+        item.translatesAutoresizingMaskIntoConstraints = false
+        item.font = .skBigPrice
+        item.textColor = .green
+        item.textAlignment = .center
 
         return item
     }()
@@ -36,14 +54,20 @@ final class CoinDetailView: UIViewController {
     }
 }
 
-
 // MARK: - Setup View
 extension CoinDetailView {
     private func setupView() {
         view.backgroundColor = .skBackground
-
+        view.addSubview(titleLbl)
+        view.addSubview(coinDetailsList)
+        view.addSubview(price)
         view.addSubview(spinnerView)
+
+        titleLblConstraints()
+        coinDetailListConstraints()
         spinnerViewConstraints()
+        priceConstraints()
+        self.title = "Coin Details"
     }
 }
 
@@ -63,8 +87,9 @@ extension CoinDetailView {
         viewModel.model.bind { [weak self] model in
             guard let model = model else { return }
             DispatchQueue.main.async {
-                // TODO: !!!
-
+                self?.titleLbl.text = model.symbol
+                self?.price.text = model.price
+                self?.coinDetailsList.setupModel(model: model.coinDetailsListModel)
             }
         }
     }

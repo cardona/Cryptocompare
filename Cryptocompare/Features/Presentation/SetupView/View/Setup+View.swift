@@ -116,7 +116,7 @@ extension SetupView: KeysFieldsViewProtocol {
     func continueAction(model: KeysFieldsModel) {
         if let pubKey = model.publicKey, !pubKey.isEmpty {
             viewModel?.save(publicKey: pubKey)
-            coordinator?.pushHomeView()
+            coordinator?.coinsListView()
         } else {
             coordinator?.showAlert(message: "enter_api_key".localized)
         }

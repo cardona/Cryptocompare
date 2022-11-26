@@ -21,7 +21,7 @@ final class DefaultCoinDetailRepository: CoinDetailRepository {
     }
 
     static func url() -> Endpoint<CoinDetailDataDecodable> {
-        return Endpoint(path: "/pricemultifull")
+        return Endpoint(path: "pricemultifull")
     }
 }
 
@@ -36,6 +36,7 @@ extension DefaultCoinDetailRepository {
         param["fsyms"] = symbols
         param["tsyms"] = currency
 
+        url.queryParameters = param
         url.headerParamaters = ["authorization": "Apikey \(parameters.apiKey)"]
 
         let networkTask = self.dataTransferService.request(with: url, completion: completion)

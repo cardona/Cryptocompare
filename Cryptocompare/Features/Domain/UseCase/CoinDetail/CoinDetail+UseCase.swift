@@ -42,7 +42,7 @@ final class DefaultCoinDetailUseCase: CoinDetailUseCase {
             switch result {
             case .success(let decodable):
                 if let raw = decodable.data?[symbol]?["EUR"] as? CoinDetailDecodable {
-                    let entity = CoinDetailsEntity(decodable: raw)
+                    let entity = CoinDetailsEntity(symbol: symbol, decodable: raw)
                     completion(.success(entity))
                 } else {
                     completion(.failure(.emptyData))

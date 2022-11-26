@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 
 extension UIFont {
+    static var skBigTitle: UIFont {
+        return UIFont(name: Resources.titleFont, size: 21) ?? .systemFont(ofSize: 21)
+    }
+
     static var skTitle: UIFont {
         return UIFont(name: Resources.titleFont, size: 14) ?? .systemFont(ofSize: 14)
     }
@@ -19,6 +23,10 @@ extension UIFont {
 
     static var skPrice: UIFont {
         return UIFont(name: Resources.priceFont, size: 13) ?? .systemFont(ofSize: 13)
+    }
+
+    static var skBigPrice: UIFont {
+        return UIFont(name: Resources.priceFont, size: 60) ?? .systemFont(ofSize: 60)
     }
 
     private enum Resources {

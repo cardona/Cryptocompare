@@ -16,7 +16,6 @@ final class MainCoordinator: Coordinator {
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.navigationController.setNavigationBarHidden(true, animated: false)
     }
 
     func childDidFinish(_ child: Coordinator?) {
@@ -40,14 +39,27 @@ extension MainCoordinator {
         let home = SetupView()
         home.coordinator = self
 
-        self.navigationController.pushViewController(home, animated: true)
+        navigationController.pushViewController(home, animated: true)
     }
 
-    func pushHomeView() {
+    func coinsListView() {
         let home = CoinsListView()
         home.coordinator = self
+        navigationController.navigationItem.setHidesBackButton(true, animated: false)
 
-        self.navigationController.pushViewController(home, animated: true)
+        navigationController.pushViewController(home, animated: true)
+    }
+
+    func pushCoinDetailView(symbol: String) {
+        let coinDetailsView = CoinDetailView()
+        coinDetailsView.coordinator = self
+        navigationController.pushViewController(coinDetailsView, animated: true)
+
+        coinDetailsView.viewModel.coinDetails(symbol: symbol)
+    }
+
+    func popToRootViewController(animated: Bool) {
+        navigationController.popToRootViewController(animated: animated)
     }
 
     func showAlert(message: String?) {
