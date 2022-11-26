@@ -11,7 +11,7 @@ import SKRools
 import UIKit
 
 protocol DownloadImageCoreData {
-    func save(identifier: String, data: Data) 
+    func save(identifier: String, data: Data)
     func load(identifier: String) -> Data?
 }
 
@@ -29,17 +29,17 @@ final class DefaultDownloadImageCoreData: DownloadImageCoreData {
             }
         }
     }
-    
+
     func load(identifier: String) -> Data? {
         let context = PersistentDataBaseContext.shared.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<ImageCache>(entityName: "ImageCache")
-        
+
         fetchRequest.predicate = NSPredicate(
             format: "identifier == %@", identifier
         )
         do {
             let image = try? context.fetch(fetchRequest).first
-            
+
             return image?.data
         }
     }
