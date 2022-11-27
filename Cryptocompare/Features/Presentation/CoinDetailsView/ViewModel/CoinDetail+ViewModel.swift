@@ -13,6 +13,7 @@ protocol CoinDetailsViewModel: CoinDetailsViewModelInput, CoinDetailsViewModelOu
 // MARK: - CoinDetailViewModel Protocol
 protocol CoinDetailsViewModelInput {
     func coinDetails(symbol: String)
+    func convertCoin(quantity: String)
 }
 
 // MARK: - CoinDetailsViewModelOutput Protocol
@@ -20,6 +21,7 @@ protocol CoinDetailsViewModelOutput {
     var loadingStatus: Box<LoadingStatus> { get }
     var error: Box<SKError?> { get }
     var model: Box<CoinDetailsModel?> { get }
+    var result: Box<String?> { get }
 }
 
 // MARK: - DefaultCoinDetailsViewModel
@@ -27,6 +29,9 @@ final class DefaultCoinDetailsViewModel: CoinDetailsViewModel {
     var loadingStatus: Box<LoadingStatus> = Box(.stop)
     var error: Box<SKError?> = Box(nil)
     var model: Box<CoinDetailsModel?> = Box(nil)
+    var result: Box<String?> = Box(nil)
+    private var price: Double?
+    private var symbol: String?
     private var useCase: CoinDetailUseCase?
     private var config: ConfigUseCase?
 
@@ -48,6 +53,13 @@ final class DefaultCoinDetailsViewModel: CoinDetailsViewModel {
         })
     }
 
+    func convertCoin(quantity: String) {
+        if let quantityDouble = Double(quantity), let currentPrice = price, let symbol = symbol {
+            let total = quantityDouble / currentPrice
+            result.value = String(total.rounded(toPlaces: 3)) + " \(symbol)"
+        }
+    }
+
     private func makeModel(entity: CoinDetailsEntity) -> CoinDetailsModel {
         /// Round price to 6 decimals
         let roundedPrice = entity.price?.rounded(toPlaces: 6) ?? 0
@@ -59,6 +71,8 @@ final class DefaultCoinDetailsViewModel: CoinDetailsViewModel {
         let high24Item = CoinDetailListModel(type: .high24Hour, title: String(entity.high24Hour ?? 0))
         let low24HourItem = CoinDetailListModel(type: .low24Hour, title: String(entity.low24Hour ?? 0))
         let details = [openDayItem, open24hItem, highDayItem, high24Item, low24HourItem]
+        price = entity.price
+        symbol = entity.symbol
 
         return CoinDetailsModel(symbol: entity.symbol, price: formatPrice, coinDetails: details)
     }

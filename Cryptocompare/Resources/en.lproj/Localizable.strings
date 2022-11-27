@@ -17,3 +17,5 @@ To obtain a Cryptocompare API key you must go to https://cryptocompare.com";
 "setupview_title_key" = "Put your API key here";
 "last_animation_text" = "What the hell are you doing? You don't want to see the app? please put the keys and continue";
 "continue_key" = "Continue";
+"how_may_coins" = "How many Coins do you want?";
+"want_to_spend" = "Put here the total in euros that you want to spend";

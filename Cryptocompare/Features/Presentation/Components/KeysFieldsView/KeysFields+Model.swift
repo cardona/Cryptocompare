@@ -8,5 +8,7 @@
 import Foundation
 
 struct KeysFieldsModel {
+    var title: String?
+    var placeholder: String?
     var publicKey: String?
 }

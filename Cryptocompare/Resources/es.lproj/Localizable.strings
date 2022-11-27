@@ -17,3 +17,5 @@ Para obtener una clave de la API de Cryptocompare debes ir a https://cryptocompa
 "setupview_title_key" = "Pon tus claves api de Cryptocompare aquí";
 "last_animation_text" = "¿Qué coño estás haciendo? ¿No quieres ver la aplicación? por favor pon las keys y continua";
 "continue_key" = "Continuar";
+"how_may_coins" = "¿Cuántas monedas quieres?";
+"want_to_spend" = "Pon aquí el total en euros que te quieres gastar";

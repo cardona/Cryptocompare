@@ -29,6 +29,10 @@ extension UIFont {
         return UIFont(name: Resources.priceFont, size: 60) ?? .systemFont(ofSize: 60)
     }
 
+    static var skResult: UIFont {
+        return UIFont(name: Resources.textFont, size: 26) ?? .systemFont(ofSize: 26)
+    }
+
     private enum Resources {
         static let defaultImage = "photo.fill"
         static let pageImage = "magazine"

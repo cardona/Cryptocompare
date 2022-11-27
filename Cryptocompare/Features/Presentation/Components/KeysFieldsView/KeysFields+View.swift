@@ -79,6 +79,7 @@ final class DefaultKeysFieldsView: UIView, KeysFieldsView {
         publicKeyLbl.text = "API Key"
         continueBtn.setTitle("continue_key".localized, for: .normal)
         publicKeyTxt.placeholder = "put you API key here"
+        backgroundColor = .clear
     }
 
     // MARK: - Setup Model
@@ -87,6 +88,12 @@ final class DefaultKeysFieldsView: UIView, KeysFieldsView {
             self.publicKeyTxt.text = model.publicKey
             if let text = self.publicKeyTxt.text, !text.isEmpty {
                 self.continueBtn.backgroundColor = .skButton
+            }
+            if let title = model.title {
+                self.publicKeyLbl.text = title
+            }
+            if let placeholder = model.placeholder {
+                self.publicKeyTxt.placeholder = placeholder
             }
         }
     }
