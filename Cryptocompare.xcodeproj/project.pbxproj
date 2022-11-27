@@ -99,6 +99,7 @@
 		55C97C9F2933949D005446EB /* CoinsListUseCaseSuccess+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C97C9E2933949D005446EB /* CoinsListUseCaseSuccess+Mock.swift */; };
 		55C97CA12933A999005446EB /* CoinDetailsViewModel+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C97CA02933A999005446EB /* CoinDetailsViewModel+Test.swift */; };
 		55C97CA32933AA5E005446EB /* CoinDetailsCoreData+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C97CA22933AA5E005446EB /* CoinDetailsCoreData+Mock.swift */; };
+		55C97CA62933B127005446EB /* CoinDetailRepository+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C97CA52933B127005446EB /* CoinDetailRepository+Test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -216,6 +217,7 @@
 		55C97C9E2933949D005446EB /* CoinsListUseCaseSuccess+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListUseCaseSuccess+Mock.swift"; sourceTree = "<group>"; };
 		55C97CA02933A999005446EB /* CoinDetailsViewModel+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetailsViewModel+Test.swift"; sourceTree = "<group>"; };
 		55C97CA22933AA5E005446EB /* CoinDetailsCoreData+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetailsCoreData+Mock.swift"; sourceTree = "<group>"; };
+		55C97CA52933B127005446EB /* CoinDetailRepository+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetailRepository+Test.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -750,8 +752,17 @@
 			children = (
 				55C97C9A2933940A005446EB /* Presentation */,
 				55A66474292D1F8F00981863 /* Domain */,
+				55C97CA42933B100005446EB /* Data */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		55C97CA42933B100005446EB /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				55C97CA52933B127005446EB /* CoinDetailRepository+Test.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1009,6 +1020,7 @@
 				55C97C9F2933949D005446EB /* CoinsListUseCaseSuccess+Mock.swift in Sources */,
 				55C97C9D29339445005446EB /* CoinsListViewModel+Test.swift in Sources */,
 				55A66486292E138100981863 /* CoinsLargeList+Json.swift in Sources */,
+				55C97CA62933B127005446EB /* CoinDetailRepository+Test.swift in Sources */,
 				55A66482292D758800981863 /* CoinsListPrice+Json.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
