@@ -15,7 +15,7 @@ final class CoinsListCoreDataSuccessMock: CoinsListCoreData {
         // Nothing to do
     }
 
-    func load() -> [Cryptocompare.CoinEntity]? {
+    func load() -> [CoinEntity]? {
         return nil
     }
 
