@@ -101,6 +101,7 @@
 		55C97CA32933AA5E005446EB /* CoinDetailsCoreData+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C97CA22933AA5E005446EB /* CoinDetailsCoreData+Mock.swift */; };
 		55C97CA62933B127005446EB /* CoinDetailRepository+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C97CA52933B127005446EB /* CoinDetailRepository+Test.swift */; };
 		55C97CA82933B61D005446EB /* CoinsListRepository+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C97CA72933B61D005446EB /* CoinsListRepository+Test.swift */; };
+		55C97CAA2933B749005446EB /* CoinsListPriceRepository+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C97CA92933B749005446EB /* CoinsListPriceRepository+Test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -220,6 +221,7 @@
 		55C97CA22933AA5E005446EB /* CoinDetailsCoreData+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetailsCoreData+Mock.swift"; sourceTree = "<group>"; };
 		55C97CA52933B127005446EB /* CoinDetailRepository+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetailRepository+Test.swift"; sourceTree = "<group>"; };
 		55C97CA72933B61D005446EB /* CoinsListRepository+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListRepository+Test.swift"; sourceTree = "<group>"; };
+		55C97CA92933B749005446EB /* CoinsListPriceRepository+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListPriceRepository+Test.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -764,6 +766,7 @@
 			children = (
 				55C97CA52933B127005446EB /* CoinDetailRepository+Test.swift */,
 				55C97CA72933B61D005446EB /* CoinsListRepository+Test.swift */,
+				55C97CA92933B749005446EB /* CoinsListPriceRepository+Test.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1018,6 +1021,7 @@
 				55C97CA32933AA5E005446EB /* CoinDetailsCoreData+Mock.swift in Sources */,
 				556C7F8D292FFB2A005A82A0 /* ConfigUseCase+Mock.swift in Sources */,
 				55A664A7292ECC3500981863 /* CoinDetailRepository+Mock.swift in Sources */,
+				55C97CAA2933B749005446EB /* CoinsListPriceRepository+Test.swift in Sources */,
 				55C97C9929338C30005446EB /* CoinsListCoreData+Mock.swift in Sources */,
 				55A664A5292ECBF000981863 /* CoinDetailUseCase+Test.swift in Sources */,
 				55A66488292E1C1400981863 /* CoinsLargeListPrice+Json.swift in Sources */,
