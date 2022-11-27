@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var coordinator: MainCoordinator?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
+        if AntiJailbreak.shared.isJailbreakActiveOnDevice() { exit(-1) }
+        if AntiJailbreak.shared.isJailbreakActive() { exit(-1) }
         let debugGroups: [DebugGroup] = [
             .networking,
             .system,
@@ -30,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .secureEnclave,
             .configuration
         ]
-
         SKRoolsConfig.shared.config(loggerGroups: debugGroups)
         SKRoolsConfig.shared.config(apikeyPublic: APPConfig.token)
 
