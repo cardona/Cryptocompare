@@ -112,7 +112,6 @@ extension CoinsListView {
         switch error {
         case .emptyList, .emptyData:
             DispatchQueue.main.async {
-//                self.itemsList.setupModel(model: [], cache: nil)
                 self.itemsList.showEmptyState()
             }
         case .accessDenied:

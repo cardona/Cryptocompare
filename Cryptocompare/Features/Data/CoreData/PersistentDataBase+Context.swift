@@ -66,7 +66,9 @@ public final class PersistentDataBaseContext {
             try persistentContainer.persistentStoreCoordinator.execute(deleteRequestCoin, with: context)
             try persistentContainer.persistentStoreCoordinator.execute(deleteRequestCoinPrice, with: context)
             try persistentContainer.persistentStoreCoordinator.execute(deleteRequestCoinDetails, with: context)
+            completion(nil)
         } catch let error as NSError {
+            completion(error)
             SKLogger.shared.log(msg: "Error Destoying DB with error: \(error.localizedDescription)", group: .database, severity: .error)
         }
     }

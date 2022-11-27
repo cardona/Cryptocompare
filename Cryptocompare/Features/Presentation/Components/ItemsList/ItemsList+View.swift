@@ -92,13 +92,15 @@ final class DefaultItemsListView: UIView, ItemsListView {
         collectionView.reloadData()    }
 
     func showEmptyState() {
-//        if itemsListModel?.count == nil {
+        if itemsListModel?.count == nil {
             itemsListModel = [ItemsListModel(isEmptyStateCell: true)]
             collectionView.reloadData()
-//        }
+        }
     }
 
     @objc private func pullToRefresh() {
+        itemsListModel = [ItemsListModel(isEmptyStateCell: true)]
+        collectionView.reloadData()
         delegate?.refresh()
     }
 
