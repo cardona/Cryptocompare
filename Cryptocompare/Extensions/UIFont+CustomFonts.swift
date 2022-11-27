@@ -14,7 +14,7 @@ extension UIFont {
     }
 
     static var skTitle: UIFont {
-        return UIFont(name: Resources.titleFont, size: 14) ?? .systemFont(ofSize: 14)
+        return UIFont(name: Resources.titleFont, size: 18) ?? .systemFont(ofSize: 18)
     }
 
     static var skText: UIFont {
