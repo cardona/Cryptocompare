@@ -47,7 +47,6 @@
 		55A66405292C097900981863 /* Cryptocompare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55A66403292C097900981863 /* Cryptocompare.xcdatamodeld */; };
 		55A66407292C097A00981863 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55A66406292C097A00981863 /* Assets.xcassets */; };
 		55A6640A292C097A00981863 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55A66408292C097A00981863 /* LaunchScreen.storyboard */; };
-		55A66415292C097A00981863 /* CryptocompareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66414292C097A00981863 /* CryptocompareTests.swift */; };
 		55A6641F292C097A00981863 /* CryptocompareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A6641E292C097A00981863 /* CryptocompareUITests.swift */; };
 		55A66421292C097A00981863 /* CryptocompareUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66420292C097A00981863 /* CryptocompareUITestsLaunchTests.swift */; };
 		55A66431292C0AA500981863 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A66430292C0AA500981863 /* MainCoordinator.swift */; };
@@ -95,6 +94,7 @@
 		55A664C2292F874C00981863 /* SetupView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A664C1292F874C00981863 /* SetupView+ViewModel.swift */; };
 		55C97C952932BD26005446EB /* DownloadImage+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C97C942932BD26005446EB /* DownloadImage+CoreData.swift */; };
 		55C97C972932CC5C005446EB /* CoinDetail+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C97C962932CC5C005446EB /* CoinDetail+CoreData.swift */; };
+		55C97C9929338C30005446EB /* CoinsListCoreData+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C97C9829338C30005446EB /* CoinsListCoreData+Mock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,7 +161,6 @@
 		55A66409292C097A00981863 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55A6640B292C097A00981863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55A66410292C097A00981863 /* CryptocompareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptocompareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		55A66414292C097A00981863 /* CryptocompareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocompareTests.swift; sourceTree = "<group>"; };
 		55A6641A292C097A00981863 /* CryptocompareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptocompareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55A6641E292C097A00981863 /* CryptocompareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocompareUITests.swift; sourceTree = "<group>"; };
 		55A66420292C097A00981863 /* CryptocompareUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptocompareUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -208,6 +207,7 @@
 		55A664C1292F874C00981863 /* SetupView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetupView+ViewModel.swift"; sourceTree = "<group>"; };
 		55C97C942932BD26005446EB /* DownloadImage+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DownloadImage+CoreData.swift"; sourceTree = "<group>"; };
 		55C97C962932CC5C005446EB /* CoinDetail+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetail+CoreData.swift"; sourceTree = "<group>"; };
+		55C97C9829338C30005446EB /* CoinsListCoreData+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinsListCoreData+Mock.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -417,7 +417,6 @@
 			children = (
 				55A66477292D201900981863 /* Mocks */,
 				55A66474292D1F8F00981863 /* Domain */,
-				55A66414292C097A00981863 /* CryptocompareTests.swift */,
 			);
 			path = CryptocompareTests;
 			sourceTree = "<group>";
@@ -633,6 +632,7 @@
 				55A6647F292D212F00981863 /* CoinsListRepository+Mock.swift */,
 				55A66483292D787100981863 /* CoinsListPriceRepository+Mock.swift */,
 				55A664A6292ECC3500981863 /* CoinDetailRepository+Mock.swift */,
+				55C97C9829338C30005446EB /* CoinsListCoreData+Mock.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -973,9 +973,9 @@
 				55A66480292D212F00981863 /* CoinsListRepository+Mock.swift in Sources */,
 				556C7F8D292FFB2A005A82A0 /* ConfigUseCase+Mock.swift in Sources */,
 				55A664A7292ECC3500981863 /* CoinDetailRepository+Mock.swift in Sources */,
+				55C97C9929338C30005446EB /* CoinsListCoreData+Mock.swift in Sources */,
 				55A664A5292ECBF000981863 /* CoinDetailUseCase+Test.swift in Sources */,
 				55A66488292E1C1400981863 /* CoinsLargeListPrice+Json.swift in Sources */,
-				55A66415292C097A00981863 /* CryptocompareTests.swift in Sources */,
 				55A66486292E138100981863 /* CoinsLargeList+Json.swift in Sources */,
 				55A66482292D758800981863 /* CoinsListPrice+Json.swift in Sources */,
 			);
@@ -1218,7 +1218,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YKK8JZ62EV;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cardona.tv.CryptocompareTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1238,7 +1238,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YKK8JZ62EV;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cardona.tv.CryptocompareTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1257,6 +1257,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YKK8JZ62EV;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cardona.tv.CryptocompareUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1275,6 +1276,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YKK8JZ62EV;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cardona.tv.CryptocompareUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -50,6 +50,8 @@ final class DefaultCoinsListUseCase: CoinsListUseCase {
         } else if noPriceCoins == nil {
             // initialitze the cache
             noPriceCoins = []
+            // Destroy Database
+            PersistentDataBaseContext.shared.destroy(completion: { _ in })
             // Prepare coins buffer
             retrieveCoinsList(completion: { [weak self] error in
                 if let error = error {

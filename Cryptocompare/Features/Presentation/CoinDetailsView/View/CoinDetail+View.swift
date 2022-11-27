@@ -46,7 +46,7 @@ final class CoinDetailView: UIViewController {
         item.font = .skResult
         item.textColor = .orange
         item.textAlignment = .center
-        
+
         return item
     }()
 
@@ -169,6 +169,8 @@ extension CoinDetailView {
             coordinator?.navigationController.popToRootViewController(animated: true)
         case .accessDenied:
             coordinator?.showAlert(message: ("Change your keys"))
+        case .notConnectedToInternet:
+            coordinator?.showAlert(message: ("No internet connection"))
         default:
             showAlert(error: error)
         }

@@ -12,4 +12,6 @@ protocol ItemsListViewProtocol {
     func selected(item: ItemsListModel?, at indexPath: IndexPath)
     /// CollectionView not going through a good moment, hit rock bottom
     func hitBottom()
+    /// Pull to refresh
+    func refresh()
 }

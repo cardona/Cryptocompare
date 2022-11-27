@@ -13,12 +13,14 @@ protocol ItemsListView: UIView {
     var delegate: ItemsListViewProtocol? { get set }
     func setupModel(model: [ItemsListModel], cache: NSCache<NSString, NSData>?)
     func showEmptyState()
+    func endRefresh()
 }
 
 final class DefaultItemsListView: UIView, ItemsListView {
     var delegate: ItemsListViewProtocol?
     private var itemsListModel: [ItemsListModel]?
     private weak var imagesCache: NSCache<NSString, NSData>?
+    private let refreshControl = UIRefreshControl()
 
     private (set) var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -55,6 +57,10 @@ final class DefaultItemsListView: UIView, ItemsListView {
         collectionView.dataSource = self
         backgroundColor = .skBackground
         collectionView.backgroundColor = .skBackground
+        refreshControl.tintColor = .gray
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        collectionView.addSubview(refreshControl)
+        collectionView.alwaysBounceVertical = true
     }
 
     private func collectionViewLayout() -> UICollectionViewFlowLayout {
@@ -90,6 +96,14 @@ final class DefaultItemsListView: UIView, ItemsListView {
             itemsListModel = [ItemsListModel(isEmptyStateCell: true)]
             collectionView.reloadData()
         }
+    }
+
+    @objc private func pullToRefresh() {
+        delegate?.refresh()
+    }
+
+    func endRefresh() {
+        refreshControl.endRefreshing()
     }
 }
 

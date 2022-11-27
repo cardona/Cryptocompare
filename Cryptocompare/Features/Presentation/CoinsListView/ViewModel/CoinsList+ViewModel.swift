@@ -24,6 +24,7 @@ protocol CoinsListViewModelInput {
     /// This method is called when the view is loaded but not presented
     func viewDidLoad()
     func coinsList()
+    func deleteCache()
 }
 
 // MARK: - CoinsListViewModelOutput Protocol
@@ -74,6 +75,12 @@ final class DefaultCoinsListViewModel: CoinsListViewModel {
                 self?.error.value = error
             }
             self?.loadingStatus.value = .stop
+        })
+    }
+
+    func deleteCache() {
+        PersistentDataBaseContext.shared.destroy(completion: { _ in
+            SKLogger.shared.log(msg: "Pull To Refresh: DB Destroyed", group: .database, severity: .info)
         })
     }
 }
