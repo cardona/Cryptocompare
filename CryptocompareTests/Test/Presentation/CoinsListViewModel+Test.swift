@@ -20,6 +20,8 @@ final class CoinsListViewModelTest: XCTestCase {
         let priceRepository = CoinsListPriceRepositorySuccessMock()
         // create mocked success config
         let configUseCase = ConfigUseCaseSuccessMock()
+        // create mocked success coin price coreData
+        let priceCoreData = CoinsListPriceCoreDataMock()
         // create mocked success coreData
         let coinCoreData = CoinsListCoreDataSuccessMock()
 
@@ -27,7 +29,8 @@ final class CoinsListViewModelTest: XCTestCase {
         let useCase: CoinsListUseCase = DefaultCoinsListUseCase(coinsRepository: coinsRepository,
                                                                 priceRepository: priceRepository,
                                                                 config: configUseCase,
-                                                                coinCoreData: coinCoreData)
+                                                                coinCoreData: coinCoreData,
+                                                                priceCoreData: priceCoreData)
 
         // Inject mocked mockup into ViewModel
         let viewModel: CoinsListViewModel = DefaultCoinsListViewModel(useCase: useCase, config: configUseCase)

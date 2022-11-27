@@ -53,22 +53,21 @@ public final class PersistentDataBaseContext {
     }
 
     func destroy(completion: @escaping (Error?) -> Void) {
-        let storeContainer = persistentContainer.persistentStoreCoordinator
-        for store in storeContainer.persistentStores {
-            if let url = store.url {
-                do {
-                    try? storeContainer.destroyPersistentStore(at: url, ofType: store.type, options: nil)
-                }
-            }
-        }
+        let context = persistentContainer.viewContext
+        let fetchRequestCoin: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CoinCoreData")
+        let fetchRequestCoinPrice: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CoinPriceCoreData")
+        let fetchRequestCoinDetails: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CoinDetailsCoreData")
 
-        persistentContainer.loadPersistentStores { _, error in
-            if let error = error {
-                SKLogger.shared.log(msg: "Error Destroying Database with error: \(error.localizedDescription)", group: .database, severity: .error)
-            } else {
-                SKLogger.shared.log(msg: "Destroyed Database", group: .database, severity: .info)
-            }
-            completion(error)
+        let deleteRequestCoin = NSBatchDeleteRequest(fetchRequest: fetchRequestCoin)
+        let deleteRequestCoinPrice = NSBatchDeleteRequest(fetchRequest: fetchRequestCoinPrice)
+        let deleteRequestCoinDetails = NSBatchDeleteRequest(fetchRequest: fetchRequestCoinDetails)
+
+        do {
+            try persistentContainer.persistentStoreCoordinator.execute(deleteRequestCoin, with: context)
+            try persistentContainer.persistentStoreCoordinator.execute(deleteRequestCoinPrice, with: context)
+            try persistentContainer.persistentStoreCoordinator.execute(deleteRequestCoinDetails, with: context)
+        } catch let error as NSError {
+            SKLogger.shared.log(msg: "Error Destoying DB with error: \(error.localizedDescription)", group: .database, severity: .error)
         }
     }
 }

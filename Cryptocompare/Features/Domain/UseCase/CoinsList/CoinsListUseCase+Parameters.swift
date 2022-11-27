@@ -19,4 +19,6 @@ struct CoinsListUseCaseParameters {
     var total: Int
     /// output currency
     var outputSymbol: Symbol
+    /// Force download form API and delete de coreData
+    var force = false
 }

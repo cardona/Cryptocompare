@@ -23,7 +23,7 @@ protocol CoinsListViewModel: CoinsListViewModelInput, CoinsListViewModelOutput {
 protocol CoinsListViewModelInput {
     /// This method is called when the view is loaded but not presented
     func viewDidLoad()
-    func coinsList()
+    func coinsList(force: Bool)
     func deleteCache()
 }
 
@@ -48,7 +48,6 @@ final class DefaultCoinsListViewModel: CoinsListViewModel {
     var itemsListModel: Box<CoinsListModel?> = Box(nil)
     private var useCase: CoinsListUseCase?
     private var config: ConfigUseCase?
-    private let params = CoinsListUseCaseParameters(total: 20, outputSymbol: .eur)
 
     init (useCase: CoinsListUseCase = DefaultCoinsListUseCase(),
           config: ConfigUseCase = DefaultConfigUseCase()) {
@@ -60,8 +59,9 @@ final class DefaultCoinsListViewModel: CoinsListViewModel {
         coinsList()
     }
 
-    func coinsList() {
+    func coinsList(force: Bool = false) {
         loadingStatus.value = .start
+        let params = CoinsListUseCaseParameters(total: 20, outputSymbol: .eur, force: force)
         useCase?.execute(parameters: params, completion: { [weak self] result in
             switch result {
             case .success(let entity):
@@ -79,9 +79,9 @@ final class DefaultCoinsListViewModel: CoinsListViewModel {
     }
 
     func deleteCache() {
-        PersistentDataBaseContext.shared.destroy(completion: { _ in
-            SKLogger.shared.log(msg: "Pull To Refresh: DB Destroyed", group: .database, severity: .info)
-        })
+        let emptyModel = CoinsListModel(coins: [], total: "", buffer: "", cached: "")
+        itemsListModel.value = emptyModel
+        coinsList(force: true)
     }
 }
 

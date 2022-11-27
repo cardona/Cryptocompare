@@ -22,15 +22,18 @@ final class CoinsListUseCaseTest: XCTestCase {
         let priceRepository = CoinsListPriceRepositorySuccessMock()
         // create mocked success config
         let configUseCase = ConfigUseCaseSuccessMock()
-        // create mocked success coreData
+        // create mocked success coin coreData
         let coinCoreData = CoinsListCoreDataSuccessMock()
+        // create mocked success coin price coreData
+        let priceCoreData = CoinsListPriceCoreDataMock()
         // create fake parameters
         let parameters = CoinsListUseCaseParameters(total: 20, outputSymbol: .eur)
         // Inject mocked mockup into useCase
         let useCase: CoinsListUseCase = DefaultCoinsListUseCase(coinsRepository: coinsRepository,
                                                                 priceRepository: priceRepository,
                                                                 config: configUseCase,
-                                                                coinCoreData: coinCoreData)
+                                                                coinCoreData: coinCoreData,
+                                                                priceCoreData: priceCoreData)
 
         // WHEN
         useCase.execute(parameters: parameters, completion: { result in
@@ -66,13 +69,16 @@ final class CoinsListUseCaseTest: XCTestCase {
         let configUseCase = ConfigUseCaseSuccessMock()
         // create mocked success coreData
         let coinCoreData = CoinsListCoreDataSuccessMock()
+        // create mocked success coin price coreData
+        let priceCoreData = CoinsListPriceCoreDataMock()
         // create fake parameters
         let parameters = CoinsListUseCaseParameters(total: 20, outputSymbol: .eur)
         // Inject mocked mockup into useCase
         let useCase: CoinsListUseCase = DefaultCoinsListUseCase(coinsRepository: coinsRepository,
                                                                 priceRepository: priceRepository,
                                                                 config: configUseCase,
-                                                                coinCoreData: coinCoreData)
+                                                                coinCoreData: coinCoreData,
+                                                                priceCoreData: priceCoreData)
 
         // WHEN
         useCase.execute(parameters: parameters, completion: { result in
@@ -277,13 +283,16 @@ final class CoinsListUseCaseTest: XCTestCase {
         let configUseCase = ConfigUseCaseSuccessMock()
         // create mocked success coreData
         let coinCoreData = CoinsListCoreDataSuccessMock()
+        // create mocked success coin price coreData
+        let priceCoreData = CoinsListPriceCoreDataMock()
         // create fake parameters
         let parameters = CoinsListUseCaseParameters(total: 20, outputSymbol: .eur)
         // Inject mocked mockup into useCase
         let useCase: CoinsListUseCase = DefaultCoinsListUseCase(coinsRepository: coinsRepository,
                                                                 priceRepository: priceRepository,
                                                                 config: configUseCase,
-                                                                coinCoreData: coinCoreData)
+                                                                coinCoreData: coinCoreData,
+                                                                priceCoreData: priceCoreData)
 
         // WHEN
         useCase.execute(parameters: parameters, completion: { result in

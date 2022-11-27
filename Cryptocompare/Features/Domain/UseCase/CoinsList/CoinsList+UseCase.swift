@@ -44,14 +44,25 @@ final class DefaultCoinsListUseCase: CoinsListUseCase {
     }
 
     func execute(parameters: CoinsListUseCaseParameters, completion: @escaping CompletionBlock) {
+        if parameters.force {
+            PersistentDataBaseContext.shared.destroy(completion: { [weak self] _ in
+                SKLogger.shared.log(msg: "Pull To Refresh: DB Destroyed", group: .database, severity: .info)
+                self?.noPriceCoins = nil
+                self?.currentCoins = []
+                self?.coinsList(parameters: parameters, completion: completion)
+            })
+        } else {
+            coinsList(parameters: parameters, completion: completion)
+        }
+    }
+
+    private func coinsList(parameters: CoinsListUseCaseParameters, completion: @escaping CompletionBlock) {
         if let currentCoins = currentCoins, noPriceCoins?.isEmpty ?? false {
             // Returns cached coins
             completion(.success(currentCoins))
         } else if noPriceCoins == nil {
             // initialitze the cache
             noPriceCoins = []
-            // Destroy Database
-            PersistentDataBaseContext.shared.destroy(completion: { _ in })
             // Prepare coins buffer
             retrieveCoinsList(completion: { [weak self] error in
                 if let error = error {
@@ -174,7 +185,7 @@ private extension DefaultCoinsListUseCase {
         if bufferCoins.count > number, let nextCoins = noPriceCoins?[0...number - 1] {
             noPriceCoins?.removeFirst(number)
 
-                return Array(nextCoins)
+            return Array(nextCoins)
         } else {
             noPriceCoins?.removeFirst(bufferCoins.count)
 
