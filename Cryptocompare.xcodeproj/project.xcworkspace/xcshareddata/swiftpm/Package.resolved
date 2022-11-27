@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios.git",
+      "state" : {
+        "revision" : "b4bd0604ded9574807f41b4004b57dd1226a30a4",
+        "version" : "3.5.0"
+      }
+    },
+    {
+      "identity" : "skrools",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/cardona/SKRools",
+      "state" : {
+        "revision" : "355854d09c3de09713fae21f64c00850caa33777",
+        "version" : "1.1.1"
+      }
+    }
+  ],
+  "version" : 2
+}
