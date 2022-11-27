@@ -13,8 +13,9 @@ extension UICollectionViewCell {
     @discardableResult
     func image(url: URL, cache: NSCache<NSString, NSData>?, completion: @escaping (Result<Data, SKError>) -> Void) -> Cancellable? {
         let repository: DownloadImageRepository = DefaultDownloadImageRepository()
+        let imagesCache: DownloadImageCoreData = DefaultDownloadImageCoreData()
 
-        if let cachedImage = cache?.object(forKey: url.absoluteString as NSString) as Data? {
+        if let cachedImage = imagesCache.load(identifier: url.absoluteString) {
             completion(.success(cachedImage))
             return nil
         } else {
@@ -23,7 +24,7 @@ extension UICollectionViewCell {
                 case .success(let data):
                     if let data = data,
                        !data.isEmpty {
-                        cache?.setObject(data as NSData, forKey: url.absoluteString as NSString)
+                        imagesCache.save(identifier: url.absoluteString, data: data)
                         completion(.success(data))
                     } else {
                         completion(.failure(SKError.parseError(msg: "No data")))

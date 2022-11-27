@@ -40,6 +40,23 @@ final class CoinDetailView: UIViewController {
         return item
     }()
 
+    private (set) var buyResult: UILabel = {
+        let item = UILabel()
+        item.translatesAutoresizingMaskIntoConstraints = false
+        item.font = .skResult
+        item.textColor = .orange
+        item.textAlignment = .center
+
+        return item
+    }()
+
+    private (set) var keysFieldsView: KeysFieldsView = {
+        let item = DefaultKeysFieldsView()
+        item.translatesAutoresizingMaskIntoConstraints = false
+
+        return item
+    }()
+
     private (set) var spinnerView: SKSpinnerView = {
         let spinner = SKSpinnerView()
         spinner.translatesAutoresizingMaskIntoConstraints = false
@@ -61,13 +78,29 @@ extension CoinDetailView {
         view.addSubview(titleLbl)
         view.addSubview(coinDetailsList)
         view.addSubview(price)
+        view.addSubview(buyResult)
+        view.addSubview(keysFieldsView)
         view.addSubview(spinnerView)
 
         titleLblConstraints()
         coinDetailListConstraints()
         spinnerViewConstraints()
         priceConstraints()
+        buyResultConstraints()
+        keysFieldsViewConstraints()
         self.title = "Coin Details"
+        addKeyboardObserver()
+        keysFieldsView.delegate = self
+        let keysFieldModel = KeysFieldsModel(title: "how_may_coins".localized, placeholder: "want_to_spend".localized)
+        keysFieldsView.setupModel(model: keysFieldModel)
+    }
+
+    private func addKeyboardObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
 }
 
@@ -91,6 +124,23 @@ extension CoinDetailView {
                 self?.price.text = model.price
                 self?.coinDetailsList.setupModel(model: model.coinDetailsListModel)
             }
+        }
+
+        viewModel.result.bind(listener: { [weak self] result in
+            guard let result = result else { return }
+            self?.buyResult.text = result
+        })
+    }
+}
+
+// MARK: - User Actions
+extension CoinDetailView: KeysFieldsViewProtocol {
+    // User taps on calculate button
+    func continueAction(model: KeysFieldsModel) {
+        if let quantity = model.publicKey, !quantity.isEmpty {
+            viewModel.convertCoin(quantity: quantity)
+        } else {
+            coordinator?.showAlert(message: "enter_api_key".localized)
         }
     }
 }
@@ -119,6 +169,8 @@ extension CoinDetailView {
             coordinator?.navigationController.popToRootViewController(animated: true)
         case .accessDenied:
             coordinator?.showAlert(message: ("Change your keys"))
+        case .notConnectedToInternet:
+            coordinator?.showAlert(message: ("No internet connection"))
         default:
             showAlert(error: error)
         }
@@ -138,5 +190,26 @@ extension CoinDetailView {
             defaultMessage = "unknow_error_key".localized
         }
         coordinator?.showAlert(message: defaultMessage)
+    }
+}
+
+// MARK: - Keyboard
+extension CoinDetailView {
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

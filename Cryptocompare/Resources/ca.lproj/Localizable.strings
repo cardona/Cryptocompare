@@ -17,4 +17,5 @@ Per obtenir una key de l'API de Cryptocompare has d'anar a https://cryptocompare
 "setupview_title_key" = "Posa la teva key de l'API de Cryptocompare";
 "last_animation_text" = "Què cony estàs fent? No vols veure l'app? posa les keys i continua";
 "continue_key" = "Continuar";
-
+"how_may_coins" = "Quantes monedes vols?";
+"want_to_spend" = "Posa aquí el total en euros que vols gastar";

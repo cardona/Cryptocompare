@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/cardona/SKRools",
       "state" : {
-        "revision" : "304211dd33617f1d91c21a1b361deb8e487a17b9",
-        "version" : "1.1.0"
+        "revision" : "355854d09c3de09713fae21f64c00850caa33777",
+        "version" : "1.1.1"
       }
     }
   ],

@@ -37,6 +37,24 @@ extension CoinDetailView {
         ])
     }
 
+    func buyResultConstraints() {
+        NSLayoutConstraint.activate([
+            buyResult.topAnchor.constraint(equalTo: coinDetailsList.bottomAnchor, constant: 60),
+            buyResult.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            buyResult.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            buyResult.heightAnchor.constraint(equalToConstant: 32)
+        ])
+    }
+
+    func keysFieldsViewConstraints() {
+        NSLayoutConstraint.activate([
+            keysFieldsView.topAnchor.constraint(equalTo: buyResult.bottomAnchor, constant: 20),
+            keysFieldsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            keysFieldsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            keysFieldsView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20)
+        ])
+    }
+
     func spinnerViewConstraints() {
         NSLayoutConstraint.activate([
             spinnerView.topAnchor.constraint(equalTo: view.topAnchor),

@@ -14,7 +14,7 @@ extension UIFont {
     }
 
     static var skTitle: UIFont {
-        return UIFont(name: Resources.titleFont, size: 14) ?? .systemFont(ofSize: 14)
+        return UIFont(name: Resources.titleFont, size: 18) ?? .systemFont(ofSize: 18)
     }
 
     static var skText: UIFont {
@@ -27,6 +27,10 @@ extension UIFont {
 
     static var skBigPrice: UIFont {
         return UIFont(name: Resources.priceFont, size: 60) ?? .systemFont(ofSize: 60)
+    }
+
+    static var skResult: UIFont {
+        return UIFont(name: Resources.textFont, size: 26) ?? .systemFont(ofSize: 26)
     }
 
     private enum Resources {

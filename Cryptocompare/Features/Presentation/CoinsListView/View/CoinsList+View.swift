@@ -85,7 +85,7 @@ extension CoinsListView {
 
     /// The user reaches the end of the coins list and needs more data
     private func coinsListHitBottom() {
-        viewModel.coinsList()
+        viewModel.coinsList(force: false)
     }
 }
 
@@ -110,7 +110,7 @@ extension CoinsListView {
 extension CoinsListView {
     private func errorHandling(error: SKError) {
         switch error {
-        case .emptyList:
+        case .emptyList, .emptyData:
             DispatchQueue.main.async {
                 self.itemsList.showEmptyState()
             }
@@ -146,5 +146,11 @@ extension CoinsListView: ItemsListViewProtocol {
 
     func selected(item: ItemsListModel?, at indexPath: IndexPath) {
         itemsListSelected(item: item, at: indexPath)
+    }
+
+    func refresh() {
+        SKLogger.shared.log(msg: "Pull", group: .database, severity: .info)
+        viewModel.deleteCache()
+        itemsList.endRefresh()
     }
 }

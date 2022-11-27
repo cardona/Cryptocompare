@@ -42,26 +42,7 @@ final class CoinCell: UICollectionViewCell {
         return lbl
     }()
 
-    let descriptionLbl: UILabel = {
-        let lbl = UILabel()
-        lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.numberOfLines = 0
-        lbl.textColor = .black
-        lbl.textAlignment = .left
-        lbl.font = .skText
-
-        return lbl
-    }()
-
-    var pagesImage: UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: Resources.pageImage)
-
-        return image
-    }()
-
-    let pages: UILabel = {
+    let symbol: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.textColor = .black
@@ -97,25 +78,20 @@ final class CoinCell: UICollectionViewCell {
         dataTask = nil
         title.text = ""
         imageView.image = nil
-        pages.text = ""
-        descriptionLbl.text = ""
+        symbol.text = ""
         price.text = ""
     }
 
     func commonInit() {
         contentView.addSubview(containerView)
         containerView.addSubview(imageView)
+        containerView.addSubview(symbol)
         containerView.addSubview(title)
-        containerView.addSubview(pagesImage)
-        containerView.addSubview(pages)
-        containerView.addSubview(descriptionLbl)
         containerView.addSubview(price)
         containerViewConstraints()
         imageViewConstraints()
         titleConstraints()
-        pagesImageConstraints()
-        pagesConstraints()
-        descriptionLblConstraints()
+        symbolConstraints()
         priceConstraints()
         contentView.layer.cornerRadius = 8.0
         contentView.layer.borderWidth = 1.0
@@ -126,7 +102,7 @@ final class CoinCell: UICollectionViewCell {
     func setupCell(model: ItemsListModel) {
         DispatchQueue.main.async {
             self.title.text = model.title
-            self.pages.text = model.subtitle
+            self.symbol.text = model.subtitle
             self.price.text = model.bottomRightText
             self.setupShadow()
         }
@@ -168,36 +144,18 @@ extension CoinCell {
     func titleConstraints() {
         NSLayoutConstraint.activate([
             title.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 0),
-            title.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
+            title.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 20),
             title.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
-            title.heightAnchor.constraint(greaterThanOrEqualToConstant: 21)
+            title.heightAnchor.constraint(equalToConstant: 21)
         ])
     }
 
-    func descriptionLblConstraints() {
+    func symbolConstraints() {
         NSLayoutConstraint.activate([
-            descriptionLbl.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 5),
-            descriptionLbl.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 15),
-            descriptionLbl.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
-            descriptionLbl.bottomAnchor.constraint(equalTo: pagesImage.topAnchor, constant: -10)
-        ])
-    }
-
-    func pagesImageConstraints() {
-        NSLayoutConstraint.activate([
-            pagesImage.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
-            pagesImage.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
-            pagesImage.heightAnchor.constraint(equalToConstant: 23),
-            pagesImage.widthAnchor.constraint(equalToConstant: 17)
-        ])
-    }
-
-    func pagesConstraints() {
-        NSLayoutConstraint.activate([
-            pages.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
-            pages.leadingAnchor.constraint(equalTo: pagesImage.trailingAnchor, constant: 5),
-            pages.heightAnchor.constraint(equalToConstant: 21),
-            pages.widthAnchor.constraint(equalToConstant: 30)
+            symbol.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
+            symbol.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 20),
+            symbol.trailingAnchor.constraint(equalTo: price.leadingAnchor, constant: -20),
+            symbol.heightAnchor.constraint(equalToConstant: 21)
         ])
     }
 

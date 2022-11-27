@@ -25,19 +25,38 @@ protocol CoinsListUseCase {
 final class DefaultCoinsListUseCase: CoinsListUseCase {
     private var coinsRepository: CoinsListRepository?
     private var priceRepository: CoinsListPriceRepository?
+    private var coinCoreData: CoinsListCoreData?
+    private var priceCoreData: CoinsListPriceCoreData?
     private var config: ConfigUseCase?
     private var noPriceCoins: [CoinEntity]?
     private var currentCoins: [CoinEntity]? = []
 
     init(coinsRepository: CoinsListRepository = DefaultCoinsListRepository(),
          priceRepository: CoinsListPriceRepository = DefaultCoinsListPriceRepository(),
-         config: ConfigUseCase = DefaultConfigUseCase()) {
+         config: ConfigUseCase = DefaultConfigUseCase(),
+         coinCoreData: CoinsListCoreData = DefaultCoinsListCoreData(),
+         priceCoreData: CoinsListPriceCoreData = DefaultCoinsListPriceCoreData()) {
         self.coinsRepository = coinsRepository
         self.priceRepository = priceRepository
         self.config = config
+        self.coinCoreData = coinCoreData
+        self.priceCoreData = priceCoreData
     }
 
     func execute(parameters: CoinsListUseCaseParameters, completion: @escaping CompletionBlock) {
+        if parameters.force {
+            PersistentDataBaseContext.shared.destroy(completion: { [weak self] _ in
+                SKLogger.shared.log(msg: "Pull To Refresh: DB Destroyed", group: .database, severity: .info)
+                self?.noPriceCoins = nil
+                self?.currentCoins = []
+                self?.coinsList(parameters: parameters, completion: completion)
+            })
+        } else {
+            coinsList(parameters: parameters, completion: completion)
+        }
+    }
+
+    private func coinsList(parameters: CoinsListUseCaseParameters, completion: @escaping CompletionBlock) {
         if let currentCoins = currentCoins, noPriceCoins?.isEmpty ?? false {
             // Returns cached coins
             completion(.success(currentCoins))
@@ -71,15 +90,21 @@ private extension DefaultCoinsListUseCase {
             completion(.badRequest)
             return
         }
-        let params = CoinsListRepositoryParameters(apiKey: apiKey, summary: true)
-        coinsRepository?.request(parameters: params, completion: { [weak self] result in
-            switch result {
-            case .success(let decodable):
-                self?.makeCoinsList(decodable: decodable, completion: completion)
-            case .failure(let error):
-                completion(error.skError)
-            }
-        })
+
+        if let storedData = coinCoreData?.load(), !storedData.isEmpty {
+            noPriceCoins = storedData.sorted()
+            completion(nil)
+        } else {
+            let params = CoinsListRepositoryParameters(apiKey: apiKey, summary: true)
+            coinsRepository?.request(parameters: params, completion: { [weak self] result in
+                switch result {
+                case .success(let decodable):
+                    self?.makeCoinsList(decodable: decodable, completion: completion)
+                case .failure(let error):
+                    completion(error.skError)
+                }
+            })
+        }
     }
 
     /// Parses all items in the list to entities and sorts them in alphabetical order
@@ -96,6 +121,9 @@ private extension DefaultCoinsListUseCase {
                 currentBuffer.append(entity)
             }
             noPriceCoins = currentBuffer.sorted()
+            if let coinsList = noPriceCoins {
+                coinCoreData?.save(entity: coinsList)
+            }
             completion(nil)
         } else {
             completion(.emptyData)
@@ -119,18 +147,32 @@ private extension DefaultCoinsListUseCase {
         }
         let nextCoins = nextCoinsWithoutPrice(number: parameters.total)
         let symbols = nextCoins.compactMap { $0.symbol }
-        let currency = parameters.outputSymbol.rawValue.uppercased()
 
-        let params = CoinsListPriceRepositoryParameters(apiKey: apiKey, fsyms: symbols, tsyms: [currency])
+        if let entity = priceCoreData?.load(symbols: symbols), !entity.isEmpty {
+            currentCoins?.append(contentsOf: entity.sorted())
+            completion(.success(entity))
+        } else {
+            let currency = parameters.outputSymbol.rawValue.uppercased()
+            let params = CoinsListPriceRepositoryParameters(apiKey: apiKey, fsyms: symbols, tsyms: [currency])
 
-        priceRepository?.request(parameters: params, completion: { [weak self] result in
-            switch result {
-            case .success(let decodable):
-                self?.matchCoinPrice(decodable: decodable, nextCoins: nextCoins, completion: completion)
-            case .failure(let error):
-                completion(.failure(error.skError))
-            }
-        })
+            priceRepository?.request(parameters: params, completion: { [weak self] result in
+                switch result {
+                case .success(let decodable):
+                    self?.matchCoinPrice(decodable: decodable, nextCoins: nextCoins, completion: completion)
+                case .failure(let error):
+                    switch error {
+                    case .notConnectedToInternet:
+                        if let coins = self?.currentCoins {
+                            completion(.success(coins))
+                        } else {
+                            completion(.failure(.notConnectedToInternet))
+                        }
+                    default:
+                        completion(.failure(error.skError))
+                    }
+                }
+            })
+        }
     }
 
     /// Retrieves a specified number of items from the coin list with no price
@@ -143,7 +185,7 @@ private extension DefaultCoinsListUseCase {
         if bufferCoins.count > number, let nextCoins = noPriceCoins?[0...number - 1] {
             noPriceCoins?.removeFirst(number)
 
-                return Array(nextCoins)
+            return Array(nextCoins)
         } else {
             noPriceCoins?.removeFirst(bufferCoins.count)
 
@@ -174,6 +216,8 @@ private extension DefaultCoinsListUseCase {
         }
         currentCoins?.append(contentsOf: coins.sorted())
         if let currentCoins = currentCoins, !coins.isEmpty {
+            priceCoreData?.save(entity: coins)
+            priceCoreData?.stats()
             completion(.success(currentCoins))
         } else {
             completion(.failure(SKError.emptyData))
