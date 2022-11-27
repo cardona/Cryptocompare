@@ -94,6 +94,7 @@
 		55A664C0292F873D00981863 /* SetupView+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A664BF292F873D00981863 /* SetupView+Model.swift */; };
 		55A664C2292F874C00981863 /* SetupView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A664C1292F874C00981863 /* SetupView+ViewModel.swift */; };
 		55C97C952932BD26005446EB /* DownloadImage+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C97C942932BD26005446EB /* DownloadImage+CoreData.swift */; };
+		55C97C972932CC5C005446EB /* CoinDetail+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C97C962932CC5C005446EB /* CoinDetail+CoreData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +207,7 @@
 		55A664BF292F873D00981863 /* SetupView+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetupView+Model.swift"; sourceTree = "<group>"; };
 		55A664C1292F874C00981863 /* SetupView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetupView+ViewModel.swift"; sourceTree = "<group>"; };
 		55C97C942932BD26005446EB /* DownloadImage+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DownloadImage+CoreData.swift"; sourceTree = "<group>"; };
+		55C97C962932CC5C005446EB /* CoinDetail+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoinDetail+CoreData.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -654,6 +656,7 @@
 			children = (
 				55A66495292EC16200981863 /* CoinDetail+Repository.swift */,
 				55A66497292EC17000981863 /* CoinDetailRepository+Parameters.swift */,
+				55C97C962932CC5C005446EB /* CoinDetail+CoreData.swift */,
 			);
 			path = CoinDetail;
 			sourceTree = "<group>";
@@ -948,6 +951,7 @@
 				556C7FA0293009FC005A82A0 /* ItemsList+Model.swift in Sources */,
 				55A664A1292EC6A000981863 /* CoinDetail+UseCase.swift in Sources */,
 				55A66496292EC16200981863 /* CoinDetail+Repository.swift in Sources */,
+				55C97C972932CC5C005446EB /* CoinDetail+CoreData.swift in Sources */,
 				55A66451292C277300981863 /* CoinsList+Repository.swift in Sources */,
 				556C7FB929302620005A82A0 /* CoinsList+ViewModel.swift in Sources */,
 				55A66459292C2A9F00981863 /* CoinsListPrice+Decodable.swift in Sources */,

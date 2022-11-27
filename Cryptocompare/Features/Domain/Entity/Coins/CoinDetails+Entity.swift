@@ -34,4 +34,15 @@ struct CoinDetailsEntity {
         self.low24Hour = decodable.low24hour
         self.imageurl = decodable.imageurl
     }
+
+    init(coreData: CoinDetailsCoreData) {
+        self.symbol = coreData.symbol ?? ""
+        self.price = coreData.price
+        self.openDay = coreData.openDay
+        self.highDay = coreData.highDay
+        self.open24Hour = coreData.open24Hour
+        self.high24Hour = coreData.high24Hour
+        self.low24Hour = coreData.low24Hour
+        self.imageurl = coreData.imageurl
+    }
 }

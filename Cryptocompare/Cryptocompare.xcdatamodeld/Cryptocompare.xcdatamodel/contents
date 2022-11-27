@@ -6,6 +6,16 @@
         <attribute name="imageUrl" optional="YES" attributeType="String"/>
         <attribute name="symbol" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="CoinDetailsCoreData" representedClassName="CoinDetailsCoreData" syncable="YES" codeGenerationType="class">
+        <attribute name="high24Hour" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="highDay" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="imageurl" optional="YES" attributeType="String"/>
+        <attribute name="low24Hour" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="open24Hour" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="openDay" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="symbol" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="CoinPriceCoreData" representedClassName="CoinPriceCoreData" syncable="YES" codeGenerationType="class">
         <attribute name="fullName" optional="YES" attributeType="String"/>
         <attribute name="identifier" optional="YES" attributeType="String"/>
